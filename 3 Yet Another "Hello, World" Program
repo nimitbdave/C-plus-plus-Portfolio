@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints "Hello, World!":
+cout << "Hel" << "lo, Wo" << "rld!" << endl;
+}
+
+//The output operator is used four times here, dropping 
+//the four objects "Hel", "lo,Wo" , "rld!", and
+//endl into the output stream.

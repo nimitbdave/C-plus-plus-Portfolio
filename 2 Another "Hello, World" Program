@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;  //tells the C++ compiler to apply the prefix std:: to resolve names that need prefixes
+
+int main()
+{ // prints "Hello, World!":
+  cout << "Hello, World!\n";
+  return 0;
+}
+

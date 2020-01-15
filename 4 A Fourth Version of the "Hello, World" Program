@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints "Hello, World!":
+cout << "Hello, W" << 'o' << "rld" << '!' << '\n';
+}
+
+This shows that the output operator can process characters as well as string literals. 
+The three individual characters 'o', '!', and '\n' are concatenated into the output the same 
+as were the two string literals, "Hello,W" and "rld".

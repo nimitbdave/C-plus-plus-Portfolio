@@ -1,0 +1,18 @@
+// Write a block of C++ code that has the same effect as the statement
+// n = 100 + m++;
+// without using the post-increment operator.
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // 
+
+  n = 100 + m;
+  ++m;
+  
+}
+
+//
+//
+//

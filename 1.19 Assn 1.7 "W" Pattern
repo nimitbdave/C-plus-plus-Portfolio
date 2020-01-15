@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints "W" as a block letter
+cout << "*                 *" << endl;
+cout << " *               *" << endl;
+cout << "  *             *" << endl;
+cout << "   *     *     *" << endl;
+cout << "    *   * *   *" << endl;
+cout << "     * *   * *" << endl;
+cout << "      *     *" << endl;
+}
+

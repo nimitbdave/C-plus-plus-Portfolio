@@ -1,0 +1,17 @@
+//Write a program that prints the first sentence of the Gettysburg Address (or your favorite
+//quotation).
+
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints a favorite quotation
+cout << "\t“The question of whether a computer can think ”\n";
+cout << "is no more interesting than the question of \n";
+cout << "whether a submarine can swim.\n";
+}
+
+//“The question of whether a computer can think 
+//is no more interesting than the question of 
+//whether a submarine can swim.”

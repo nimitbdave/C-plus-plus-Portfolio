@@ -1,0 +1,41 @@
+/* 
+Write and run a test program that shows how your system handles uninitialized variables.
+*/
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints the values of uninitialized variables
+    bool b; // not initialized
+    cout << "b = " << b << endl;
+    
+    char c; // not initialized
+    cout << "c = [" << c << "]" << endl;
+    
+    int m; // not initialized
+    cout << "m = " << m << endl;
+    
+    int n; // not initialized
+    cout << "n = " << n << endl;
+    
+    long nn; // not initialized
+    cout << "nn = " << nn << endl;
+    
+    float x; // not initialized
+    cout << "x = " << x << endl;
+    
+    double y; // not initialized
+    cout << "y = " << y << endl;
+}
+
+/*
+OUPUT: 
+b = 0
+c =
+m = 4296913
+n = 4296716
+nn = 4296794
+x = 6.02438e-39
+y = 9.7869e-307
+*/

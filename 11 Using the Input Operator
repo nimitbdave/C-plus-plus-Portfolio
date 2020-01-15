@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // tests the input of integers,floats,and characters:
+  
+  int m,n;
+  
+  cout << "Enter two integers: ";
+  cin >> m >> n;
+  
+  cout << "m = " << m << ", n = " << n << endl;
+  
+  double x,y,z;
+  
+  cout << "Enter three decimal numbers: ";
+  cin >> x >> y >> z;
+  
+  cout << "x = " << x << ", y = " << y << ", z = " << z << endl;
+  
+  char c1,c2,c3,c4 ;
+  
+  cout << "Enter four characters: ";
+  cin >> c1 >> c2 >> c3 >> c4;
+  
+  cout << "c1 = " << c1 << ",c 2 = " << c2 << ", c3 = " << c3
+       << ", c4 = " << c4 << endl;
+}
+
+//  OUTPUT & INPUTS:  
+//  Enter two integers: 22 44
+//  m = 22, n = 44
+//  Enter three decimal numbers: 2.2 4.4 6.6
+//  x = 2.2,y = 4.4,z = 6.6
+//  Enter four characters: ABCD
+//  c1 = A, c2 = B, c3 = C, c4 = D

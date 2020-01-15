@@ -1,6 +1,13 @@
   
 /* 
+n = ++m; // the pre-increment operator is applied to m
+increments m to 45 and then assigns that value to n. So both variables have the same value 45 when the
+next output line executes.
 
+The line
+n = m++; // the post-increment operator is applied to m
+increments m to 45 only after it has assigned the value of m to n. So n has the value 44 when the next output
+line executes.
 */
 
 #include <iostream>

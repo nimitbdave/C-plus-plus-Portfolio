@@ -1,0 +1,13 @@
+//Write a single C++ statement that decrements the variable n and then adds it to total.
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // 
+
+  total += --n;  // total = [total + --n]
+                 // total = [total + n]; n = n - 1; 
+}
+
+//a += 1 (or a = a + 1)

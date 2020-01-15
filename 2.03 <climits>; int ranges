@@ -1,0 +1,40 @@
+/* 
+
+*/
+
+#include <iostream>
+#include <climits> // defines the constants SHRT_MIN,etc.
+using namespace std;
+
+
+int main()
+{ // prints some of the constants stored in the <climits> header:
+
+    cout << "minimum short = " << SHRT_MIN << endl;
+    cout << "maximum short = " << SHRT_MAX << endl;
+    cout << "maximum unsigned short = 0" << endl;
+    cout << "maximum unsigned short = " << USHRT_MAX << endl;
+    cout << "minimum int = " << INT_MIN << endl;
+    cout << "maximum int = " << INT_MAX << endl;
+    cout << "minimum unsigned int = 0" << endl;
+    cout << "maximum unsigned int = " << UINT_MAX << endl;
+    cout << "minimum long= " << LONG_MIN << endl;
+    cout << "maximum long= " << LONG_MAX << endl;
+    cout << "minimum unsigned long = 0" << endl;
+    cout << "maximum unsigned long = " << ULONG_MAX << endl;
+
+/*  
+OUPUT: 
+minimum short = -32768
+maximum short = 32767
+maximum unsigned short = 0
+maximum unsigned short = 65535
+minimum int = -2147483648
+maximum int = 2147483647
+minimum unsigned int= 0
+maximum unsigned int= 4294967295
+minimum long = -2147483648
+maximum long = 2147483647
+minimum unsigned long = 0
+maximum unsigned long = 4294967295
+*/

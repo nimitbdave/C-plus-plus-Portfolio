@@ -1,0 +1,33 @@
+//Write and run a program that shows what happens when each of the following ten “escape
+//sequences” is printed: \a, \b, \n, \r, \t, \v, \', \", \\, \?.
+
+int main()
+{ // prints escape sequences
+  cout << "Prints \"\\nXXYY\": " << "\nXXYY" << endl;
+  cout << "--------------------------------------------" << endl;
+  cout << "Prints \"\\nXX\\bYY\": " << "\nXX\bYY" << endl;
+  cout << "--------------------------------------------" << endl;
+  cout << "Prints \"\\n\\tXX\\tYY\": " << "\n\tXX\tYY" << endl;
+  cout << "--------------------------------------------" << endl;
+  cout << "Prints the \'\\a\' character: " << '\a' << endl;
+  cout << "--------------------------------------------" << endl;
+  cout << "Prints the \'\\r\' character: " << '\r' << endl;
+  cout << "--------------------------------------------" << endl;
+  cout << "Prints the \'\\v\' character: " << '\v' << endl;
+  cout << "--------------------------------------------" << endl;
+  cout << "Prints the \'\\?\' character: " << '\?' << endl;
+  cout << "--------------------------------------------" << endl;
+}
+
+//OUTPUT:  
+//Prints the '\v' character:
+//--------------------------------------------
+//Prints the '\?' character: ?
+//--------------------------------------------
+//Prints "\nXXYY":
+//XXYY
+//--------------------------------------------
+//Prints "\nXX\bYY":
+//XYY
+//--------------------------------------------
+//Prints "\n\tXX\tYY":

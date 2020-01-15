@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints "m = ?? and n = 44":
+  int m; // BAD: m is not initialized
+  int n=44;
+  cout << "m = " << m << " and n = " << n << endl;
+}
+
+// OUTPUT:  m = ?? and n = 44
+
+// THIS COMPILER handles uninitialized variables in a special way. It gives them a special value that appears
+// as ?? when printed. Other compilers may simply leave “GARBAGE” in the variable, producing output like this:
+//  m = -2107339024 and n = 44

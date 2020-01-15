@@ -1,0 +1,25 @@
+//Write a program that prints the block letter “B” in a 7 × 6 grid of stars like this:
+//*****
+//*    *
+//*    *
+//*****
+//*    *
+//*    *
+//*****
+
+  
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // 
+int main()
+{ // prints "B" as a block letter
+  cout << "*****" << endl;
+  cout << "*    *" << endl;
+  cout << "*    *" << endl;
+  cout << "*****" << endl;
+  cout << "*    *" << endl;
+  cout << "*    *" << endl;
+  cout << "*****" << endl;  
+}

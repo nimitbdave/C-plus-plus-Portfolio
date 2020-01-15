@@ -1,0 +1,35 @@
+/* 
+Write and run a program that prints the sum, difference, product, quotient, and remainder of
+two integers that are input interactively.
+*/
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints the results of arithmetic operators
+ 
+  int m,n;
+  
+  cout << "Enter two integers: ";
+  cin >> m >> n;
+  
+  cout << "The integers are "     << m        << " and " << n << endl;
+  
+  cout << "Their sum is "         << (m + n)  << endl;
+  cout << "Their difference is "  << (m - n)  << endl;
+  cout << "Their product is "     << (m * n)  << endl;
+  cout << "Their quotient is "    << (m / n)  << endl;
+  cout << "Their remainder is "   << (m % n)  << endl;
+}
+
+/*
+OUPUT: 
+Enter two integers: 60 7
+The integers are 60 and 7
+Their sum is 67
+Their difference is 53
+Their product is 420
+Their quotient is 8
+Their remainder is 4
+*/

@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // THIS SOURCE CODE HAS AN ERROR:
+int n=44
+cout << "n = " << n << endl;
+}
+
+//  One compiler issued the following error message:
+//  Error : ';' expected
+//  Testing.cpp line 4 cout << "n = " << n << endl;
+
+//This compiler underlines the TOKEN where it finds the error. In this case, that is the “cout” TOKEN at the
+//beginning of the fourth line. The missing token was not detected until the next token was encountered.

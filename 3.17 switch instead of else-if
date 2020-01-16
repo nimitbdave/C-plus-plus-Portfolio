@@ -1,0 +1,39 @@
+/* 
+First the program divides the score by 10 to reduce the range of values to 0–10. So in the test run, the
+score 83 reduces to the value 8, the program execution branches to case 8, and prints the output shown.
+Then the break statement causes the program execution to branch to the first statement after the switch
+block. That statement prints “Goodbye.”.
+Note that scores in the ranges 101 to 109 and -9 to -1 produce incorrect results.
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int score;
+  cout << "Enter your test score: "; cin >> score;
+  switch (score/10)                                         //Divides input by 10, to make choices fit 10 to 0.  
+  { case 10:
+    case 9: cout << "Your grade is an A." << endl; break;
+    case 8: cout << "Your grade is a B."  << endl; break;
+    case 7: cout << "Your grade is a C."  << endl; break;
+    case 6: cout << "Your grade is a D."  << endl; break;
+    case 5:
+    case 4:
+    case 3:
+    case 2:
+    case 1:
+    case 0: cout << "Your grade is an F." << endl; break;
+  }
+cout << "Goodbye." << endl;
+}
+
+
+/*
+OUPUT: 
+Enter your test score: 83
+Your grade is a B.
+Goodbye.
+*/

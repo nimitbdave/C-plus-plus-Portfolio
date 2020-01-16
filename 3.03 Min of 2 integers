@@ -1,0 +1,24 @@
+/* 
+
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{   int m,n;
+
+    cout << "Enter two integers: ";
+    cin >> m >> n;
+    
+    if (m < n) cout << m << " is the minimum." << endl;  //If m is less than n, then m is minimum.
+    else cout << n << " is the minimum." << endl;        //Else n is minimum.
+}
+
+/*
+OUPUT: 
+Enter two integers: 77 55
+55 is the minimum.
+*/

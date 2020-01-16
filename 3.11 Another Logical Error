@@ -1,0 +1,27 @@
+/* 
+This program is erroneous:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int n1,n2,n3;
+    cout << "Enter three integers: ";
+    cin >> n1 >> n2 >> n3;
+    if (n1 >= n2 >= n3) cout << "max = x"; // LOGICAL ERROR!
+}
+
+/*
+OUPUT: 
+Enter an integer: 0 0 1
+max = 0
+
+The source of this error is the fact that boolean expressions have numeric values. Since the expression
+(n1 >= n2 >= n3) is evaluated from left to right, the first part n1 >= n2 evaluates to “true” since
+0 >= 0. But “true” is stored as the numeric value 1. That value is then compared to the value of n3 which
+is also 1, so the complete expression evaluates to “true” even though it is really false! (0 is not the
+maximum of 0, 0, and 1.)
+*/

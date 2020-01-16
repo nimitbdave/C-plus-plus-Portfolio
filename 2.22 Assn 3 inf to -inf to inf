@@ -1,0 +1,39 @@
+/* 
+Assn:
+Write and run a program to find which, if any, arithmetic operations can be applied to a variable
+that will change its value from any of the three numeric constants inf, -inf, and nan
+to something else.
+
+Summary:
+The following program changes the value of x from inf to -inf and vice versa. But no arithmetic
+operation will change the value of a variable once it becomes nan.
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // changes the value of x after it becomes inf:
+    
+    float x = 1e30;
+    cout << "x= " << x << endl;
+    
+    x *= x;
+    cout << "x= " << x << endl;  //causes inf state
+    
+    x *= -1.0;
+    cout << "x= " << x << endl;  //changes inf to -inf
+    
+    x *= -1.0;
+    cout << "x= " << x << endl;  //changes -inf to inf
+}
+
+/*
+OUPUT: 
+x= 1e+30
+x= inf
+x= -inf
+x= inf
+*/

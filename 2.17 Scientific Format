@@ -1,0 +1,21 @@
+/* 
+This program shows how floating-point values may be input in scientific format:
+*/
+
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+
+int main()
+{ // prints double values in scientific e-format:
+    double x;
+    cout << "Enter float: "; cin >> x;
+    cout << "Its reciprocal is: " << 1/x << endl;
+}
+
+/*
+OUPUT: 
+Enter float: 234.567e89
+Its reciprocal is: 4.26317e-92
+*/

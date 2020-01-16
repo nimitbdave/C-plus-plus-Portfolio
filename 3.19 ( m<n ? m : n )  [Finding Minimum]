@@ -1,0 +1,23 @@
+/* 
+This program has the same effect as the program in 3.3:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int m,n;
+
+  cout << "Enter two integers: ";
+  cin >> m >> n;
+
+  cout << ( m<n ? m : n ) << " is the minimum." << endl;  //evaluates to m if m<n, and to n otherwise.
+} 
+
+/*
+OUPUT: 
+
+The conditional expression ( m<n ? m : n ) evaluates to m if m<n, and to n otherwise.
+*/

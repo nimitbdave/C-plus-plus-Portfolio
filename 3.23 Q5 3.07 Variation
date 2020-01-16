@@ -1,0 +1,33 @@
+/* 
+
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int n=44;
+  cout << "n = " << n << endl;
+  { cout << "Enter an integer: ";
+    cin >> n;
+    cout << "n = " << n << endl;
+  }
+  { cout << "n = " << n << endl;
+  }
+  { int n;
+    cout << "n = " << n << endl;
+  }
+  cout << "n = " << n << endl;
+}
+
+/*
+OUPUT: 
+n = 44
+Enter an integer: 77
+n = 77
+n = 77
+n = 4251897
+n = 77
+*/

@@ -1,0 +1,30 @@
+  
+/* 
+
+*/
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints x until it overflows:
+    float x=1000.0;
+    cout << "x = " << x << endl;
+    x *= x; // multiplies n by itself; i.e.,it squares x
+    cout << "x = " << x << endl;
+    x *= x; // multiplies n by itself; i.e.,it squares x
+    cout << "x = " << x << endl;
+    x *= x; // multiplies n by itself; i.e.,it squares x
+    cout << "x = " << x << endl;
+    x *= x; // multiplies n by itself; i.e.,it squares x
+    cout << "x = " << x << endl;
+}
+
+/*
+OUPUT: 
+x = 1000
+x = 1e+06
+x = 1e+12
+x = 1e+24
+x = inf
+*/

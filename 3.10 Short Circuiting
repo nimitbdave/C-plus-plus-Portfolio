@@ -1,0 +1,38 @@
+/* 
+This program tests integer divisibility:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{   int n,d;
+    
+    cout << "Enter two positive integers: ";
+    cin >> n >> d;
+    
+    if (d != 0 && n%d == 0) cout << d << " divides " << n << endl;  //If non-zero and no remainder, then divisible.  
+    else cout << d << " does not divide " << n << endl;
+}
+
+/*
+
+In this run,d is positive and n%d is zero, so the compound condition is true:
+OUPUT 1: 
+Enter two positive integers: 300 6
+6 divides 300
+
+In this run, d is positive but n%d is not zero, so the compound condition is false:
+OUTPUT 2:  
+Enter two positive integers: 300 7
+7 does not divide 300
+
+In this run,d is zero, so the compound condition is immediately determined to be false without evaluating
+the second expression “n%d == 0”:
+OUTPUT 3:  
+Enter two positive integers: 300 0
+0 does not divide 300
+
+*/

@@ -1,0 +1,47 @@
+/* 
+This program uses the same name n for three different variables:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{   int n=44;
+    
+    cout << "n = " << n << endl;
+    { int n;                                  // scope extends over 4 lines
+        cout << "Enter an integer: ";
+        cin >> n;
+        cout << "n = " << n << endl;
+    }
+    
+    { cout << "n = " << n << endl;            // the n that was declared first
+    }
+    
+    { int n;                                  // scope extends over 2 lines
+      cout << "n = " << n << endl;
+    }
+    
+    cout << "n = " << n << endl;              // the n that was declared first
+}
+
+/*
+OUPUT: 
+n = 44
+Enter an integer: 77
+n = 77
+n = 44
+n = 4251897
+n = 44
+
+
+This program has three internal blocks. The first block declares a new n which exists only within that
+block and overrides the previous variable n. So the original n retains its value of 44 when this n is given
+the input value 77. The second block does not redeclare n, so the scope of the original n includes this
+block. Thus the third output is the original value 44. The third block is like the first block: it declares a
+new n which overrides the original n. But this third block does not initialize its local n, so the fourth
+output is a garbage value (4251897). Finally, since the scope of each redeclared n extends only to the
+block where it is declared, the last line of the program is in the scope of the original n, so it prints 44.
+*/

@@ -1,0 +1,28 @@
+/* 
+This program requests the user’s language and then prints a greeting in that language:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{   char language;
+
+    cout << "Engl.,Fre n.,Ger.,Ital.,or Rus.? (e|f|g|i|r): ";
+    cin >> language;
+    
+    if (language == 'e') cout << "Welcome to ProjectEuclid.";
+    else if (language == 'f') cout << "Bon jour, ProjectEuclid.";
+    else if (language == 'g') cout << "Guten tag, ProjectEuclid.";
+    else if (language == 'i') cout << "Bon giorno, ProjectEuclid.";
+    else if (language == 'r') cout << "Dobre utre, ProjectEuclid.";
+    else cout << "Sorry; we don't speak your language.";
+}
+
+/*
+OUPUT: 
+Engl., Fren., Ger., Ital., or Rus.? (e|f|g|i|r): i
+Bon giorno, ProjectEuclid.
+*/

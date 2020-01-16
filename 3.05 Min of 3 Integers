@@ -1,0 +1,28 @@
+/* 
+This program is similar to the one in 3.03 except that it applies to three integers:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{   int n1, n2, n3;
+    
+    cout << "Enter three integers: ";           //INPUT
+    cin >> n1 >> n2 >> n3;
+    
+    int min = n1;                               // now min <= n1
+    
+    if (n2 < min) min = n2; // now min <= n1 and min <= n2
+    if (n3 < min) min = n3; // now min <= n1,min <= n2,and min <= n3
+    
+    cout << "Their minimum is " << min << endl;
+}
+
+/*
+OUPUT: 
+Enter two integers: 77 33 55
+Their minimum is 33
+*/

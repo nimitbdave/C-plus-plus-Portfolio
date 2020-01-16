@@ -1,0 +1,30 @@
+  
+/* 
+
+*/
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // tests the floating-point operators +,-,*,and /:
+
+    double x=54.0;
+    double y=20.0;
+
+    cout << "x = " << x << " and y = " << y << endl;
+    
+    cout << "x+y = " << x+y << endl; // 54.0+20.0 = 74.0
+    cout << "x-y = " << x-y << endl; // 54.0-20.0 = 34.0
+    cout << "x*y = " << x*y << endl; // 54.0*20.0 = 1080.0
+    cout << "x/y = " << x/y << endl; // 54.0/20.0 = 2.7
+}
+
+/*
+OUPUT: 
+x = 55 and y = 20
+x+y = 75
+x-y = 35
+x*y = 1100
+x/y = 2.7
+*/

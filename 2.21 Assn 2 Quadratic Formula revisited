@@ -1,0 +1,50 @@
+/* 
+Modify the program in Problem 2.15 so that it uses type double instead of
+float. Then see how much better it performs on the input that illustrated round-off error.
+*/
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // implements the quadratic formula
+    double a,b,c;
+    
+    cout << "Enter the coefficients:" << endl;              //Input coefficients of quadratic formula.
+    cout << "\ta: ";
+    cin >> a;
+    cout << "\tb: ";
+    cin >> b;
+    cout << "\tc: ";
+    cin >> c;
+    
+    cout  << "The equation is: " << a << "*x*x + " << b     //Equation
+          << "*x + " << c << " = 0" << endl;
+    double d = b*b - 4*a*c;                                 
+    double sqrtd = sqrt(d);
+    double x1 = (-b + sqrtd)/(2*a);
+    double x2 = (-b - sqrtd)/(2*a);
+    
+    cout << "The solutions are:" << endl;                   //Solution
+    cout << "\tx1 = " << x1 << endl;
+    cout << "\tx2 = " << x2 << endl;
+    
+    cout << "Check:" << endl;                               //Check
+    cout << "\ta*x1*x1 + b*x1 + c = " << a*x1*x1 + b*x1 + c << endl;
+    cout << "\ta*x2*x2 + b*x2 + c = " << a*x2*x2 + b*x2 + c << endl;
+}
+
+/*
+OUPUT: 
+Enter the coefficients of a quadratic equation:
+      a: 2
+      b: 8.001
+      c: 8.002
+The equation is: 2*x*x + 8.001*x + 8.002 = 0
+The solutions are:
+      x1 = -2
+      x2 = -2.0005
+Check:
+      a*x1*x1 + b*x1 + c = 0
+      a*x2*x2 + b*x2 + c = 0
+*/

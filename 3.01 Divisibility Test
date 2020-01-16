@@ -14,7 +14,7 @@ int main()
     cout << "Enter two positive integers: ";
     cin >> n >> d;  //Input numerator and denominator
     
-    if (n%d)    //If there is a remainder, then this becomes a non-zero condition, allowing the process which follows.
+    if (n%d)    //If there is a remainder, then this becomes a non-zero [true] condition, allowing the process which follows.
         cout << n << " is not divisible by " << d << endl;
 }
 

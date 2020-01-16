@@ -1,0 +1,26 @@
+/* 
+
+*/
+
+#include <iostream>
+using namespace std; 
+
+int x = 11;             // this x is global
+
+int main()
+{ // illustrates the nested and parallel scopes:
+      int x = 22;
+      { // begin scope of internal block
+        int x = 33;
+        cout << "In block inside main(): x = " << x << endl;
+      } // end scope of internal block
+      cout << "In main(): x = " << x << endl;
+      cout << "In main(): ::x = " << ::x << endl;
+}                       // end scope of main()
+
+/*
+OUPUT: 
+In block inside main(): x = 33
+In main(): x = 22
+In main(): ::x = 11
+*/

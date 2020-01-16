@@ -1,0 +1,27 @@
+/* 
+Divisibility Test.
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{   
+
+    int n,d;
+    
+    cout << "Enter two positive integers: ";
+    cin >> n >> d;
+    
+    if (d != 0)
+      if (n%d == 0) cout << d << " divides " << n << endl;
+      else cout << d << " does not divide " << n << endl;
+    else cout << d << " does not divide " << n << endl;
+}
+
+/*
+OUPUT: 
+
+*/

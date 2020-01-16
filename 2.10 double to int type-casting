@@ -1,0 +1,22 @@
+  
+/* 
+
+*/
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // casts a double value as an int:
+    
+    double v = 1234.56789;
+    int n = int(v);
+    
+    cout << "v = " << v << ", n = " << n << endl;
+}
+
+
+/*
+OUPUT: 
+v = 1234.57,n = 1234
+*/

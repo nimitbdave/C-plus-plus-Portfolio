@@ -25,4 +25,17 @@ int main()
 OUPUT: 
 Engl., Fren., Ger., Ital., or Rus.? (e|f|g|i|r): i
 Bon giorno, ProjectEuclid.
+
+As ordinary nested if..else statements, the code could also be formatted as
+
+if (language == 'e') cout << "Welcome to ProjectEuclid.";
+else
+    if (language == 'f') cout << "Bon jour,ProjectEuclid.";
+    else
+        if (language == 'g') cout << "Guten tag,ProjectEuclid.";
+        else
+            if (language == 'i') cout << "Bon giorno,ProjectEuclid.";
+            else
+                if (language == 'r') cout << "Dobre utre,ProjectEuclid.";
+                else cout << "Sorry; we don't speak your language.";
 */

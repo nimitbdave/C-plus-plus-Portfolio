@@ -1,0 +1,35 @@
+/* 
+Write and run a program that reads the user’s age and then prints “You are a child.” if the
+age < 18, “You are an adult.” if 18 ≤ age < 65, and “You are a senior citizen.” if age ≥ 65.
+
+Here we used the else if construct because the three outcomes depend upon age being in one
+of three disjoint intervals:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int age;
+  cout << "Enter your age: ";
+  cin >> age;
+  if (age < 18) 
+    cout << "You are a child.\n";
+  else if (age < 65) 
+    cout << "You are an adult.\n";
+  else 
+    cout << "you are a senior citizen.\n";
+}
+
+/*
+OUPUT: 
+Enter your age: 44
+You are an adult.
+
+
+If control reaches the second condition (age < 65), then the first condition must be false so in fact
+18 ≤ age < 65. Similarly, if control reaches the second else, then both conditions must be false so in
+fact age ≥ 65.
+*/

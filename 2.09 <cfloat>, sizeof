@@ -1,0 +1,42 @@
+  
+/* 
+
+*/
+
+#include <cfloat> // defines the FLT constants
+#include <iostream> 
+using namespace std;
+
+
+int main()
+{ // prints the storage sizes of the fundamental types:
+    
+    int fbits = 8*sizeof(float); // each byte contains 8 bits
+    
+    cout  << "float uses "              << fbits << " bits:\n\t"
+          << FLT_MANT_DIG - 1           << " bits for its mantissa,\n\t "
+          << fbits - FLT_MANT_DIG       << " bits for its exponent,\n\t "
+          << 1                          << " bit for its sign\n"
+          << " to obtain: " << FLT_DIG  << " sig. digits\n"
+          << " with minimum value: "    << FLT_MIN << endl
+          << " and maximum value: "     << FLT_MAX << endl;
+}
+/*
+OUPUT: 
+float uses 32 bits:
+23 bits for its mantissa,
+8 bits for its exponent,
+1 bit for its sign
+to obtain: 6 sig. digits
+with minimum value: 1.17549e-38
+and maximum value: 3.40282e+38
+
+
+
+This output is from a UNIX workstation. It shows that the 32 bits it uses to store a float are
+partitioned into 3 parts: 23 bits for the mantissa, 8 bits for the exponent, and 1 bit for the sign. The 23-bit
+mantissa produces a floating-point value with 6 significant digits, and the 8-bit exponent yields a range in
+magnitude from about 10^–37 to about 3 × 10^38. i.e.,
+0.0000000000000000000000000000000000001 < |x| < 300,000,000,000,000,000,000,000,000,000,000,000,000
+for any variable x declared to have type float.
+*/

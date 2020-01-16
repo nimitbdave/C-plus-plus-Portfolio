@@ -1,0 +1,27 @@
+/* 
+
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int n1, n2, n3, n4;
+  cout << "Enter four integers: ";
+  cin >> n1 >> n2 >> n3 >> n4;
+  
+  int min=n1;             // now min <= n1
+  if (n2 < min) min = n2; // now min <= n1,n2
+  if (n3 < min) min = n3; // now min <= n1,n2,n3
+  if (n4 < min) min = n4; // now min <= n1,n2,n3,n4
+  
+  cout << "Their minimum is " << min << endl;
+}
+
+/*
+OUPUT: 
+Enter four integers: 44 88 22 66
+Their minimum is 22
+*/

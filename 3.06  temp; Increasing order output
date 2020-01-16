@@ -1,0 +1,26 @@
+/* 
+This program inputs two integers and then outputs them in increasing order:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{   int x,y;
+    
+    cout << "Enter two integers: ";
+    cin >> x >> y;
+    
+    if (x > y) { int temp=x; x = y; y = temp; }     // swap x and y
+    
+    cout << x << " <= " << y << endl;
+
+}
+
+/*
+OUPUT: 
+Enter two integers: 66 44
+44 <= 66
+*/

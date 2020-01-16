@@ -1,0 +1,26 @@
+/* 
+Divisibility Test with if-else statement.
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ 
+    int n,d;
+    
+    cout << "Enter two positive integers: ";
+    
+    cin >> n >> d;
+    
+    if (n%d) cout << n << " is not divisible by " << d << endl;   // O/P if not divisible
+    else cout << n << " is divisible by " << d << endl;     // O/P if divisible
+}
+
+/*
+OUPUT: 
+Enter two positive integers: 56 7
+56 is divisible by 7
+*/

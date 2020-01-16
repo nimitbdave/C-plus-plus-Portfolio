@@ -1,0 +1,53 @@
+/* 
+By repeatedly subdividing the problem, it can discover any one of the 8 numbers by asking only three
+questions. In this run, the user’s number is 6.
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{   cout << "Pick a number from 1 to 8." << endl;
+    
+    char answer;
+    
+    cout << "Is it less than 5? (y|n): "; cin >> answer;
+    
+    if (answer == 'y') // 1 <= n <= 4
+    { cout << "Is it less than 3? (y|n): "; cin >> answer;
+      if (answer == 'y') // 1 <= n <= 2
+      { cout << "Is it less than 2? (y|n): "; cin >> answer;
+        if (answer == 'y') cout << "Your number is 1." << endl;
+        else cout << "Your number is 2." << endl;
+      }
+      else // 3 <= n <= 4
+      { cout << "Is it less than 4? (y|n): "; cin >> answer;
+        if (answer == 'y') cout << "Your number is 3." << endl;
+        else cout << "Your number is 4." << endl;
+      }
+    }
+    else // 5 <= n <= 8
+    { cout << "Is it less than 7? (y|n): "; cin >> answer;
+      if (answer == 'y') // 5 <= n <= 6
+      { cout << "Is it less than 6? (y|n): "; cin >> answer;
+        if (answer == 'y') cout << "Your number is 5." << endl;
+        else cout << "Your number is 6." << endl;
+      }
+      else // 7 <= n <= 8
+      { cout << "Is it less than 8? (y|n): "; cin >> answer;
+      if (answer == 'y') cout << "Your number is 7." << endl;
+      else cout << "Your number is 8." << endl;
+      }
+    }
+}
+
+/*
+OUPUT: 
+Pick a number from 1 to 8.
+Is it less than 5? (y|n): n
+Is it less than 7? (y|n): y
+Is it less than 6? (y|n): n
+Your number is 6.
+*/

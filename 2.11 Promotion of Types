@@ -1,0 +1,27 @@
+    
+/* 
+This program promotes a char to a short to an int to a float to a double:
+*/
+
+#include <iostream>
+using namespace std; 
+
+int main()
+{ // prints promoted vales of 65 from char to double:
+    char c='A';   cout << " char c = "    << c << endl;
+    short k=c;    cout << " short k = "   << k << endl;
+    int m=k;      cout << " int m = "     << m << endl;
+    long n=m;     cout << " long n = "    << n << endl;
+    float x=m;    cout << " float x = "   << x << endl;
+    double y=x;   cout << " double y = "  << y << endl;
+}
+
+/*
+OUPUT: 
+char c = A
+short k = 65
+int m = 65
+long n = 65
+float x = 65
+double y = 65
+*/

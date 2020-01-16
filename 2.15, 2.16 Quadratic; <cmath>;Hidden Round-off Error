@@ -1,0 +1,106 @@
+  
+/* 
+This program implements the quadratic formula to solve quadratic equations.
+*/
+
+#include <cmath> // defines the sqrt() function
+#include <iostream>
+using namespace std;
+int main()
+{ // implements the quadratic formula
+    float a,b,c;
+    cout << "Enter the coefficients of a quadratic equation:" << endl;
+    cout << "\ta: ";
+    cin >> a;
+    cout << "\tb: ";
+    cin >> b;
+    cout << "\tc: ";
+    cin >> c;
+    cout << "The equation is: " << a << "*x*x + " << b
+    << "*x + " << c << " = 0" << endl;
+    float d = b*b - 4*a*c; // discriminant
+    float sqrtd = sqrt(d);
+    float x1 = (-b + sqrtd)/(2*a);
+    float x2 = (-b - sqrtd)/(2*a);
+    cout << "The solutions are:" << endl;
+    cout << "\tx1 = " << x1 << endl;
+    cout << "\tx2 = " << x2 << endl;
+    cout << "Check:" << endl;
+    cout << "\ta*x1*x1 + b*x1 + c = " << a*x1*x1 + b*x1 + c << endl;
+    cout << "\ta*x2*x2 + b*x2 + c = " << a*x2*x2 + b*x2 + c << endl;
+}
+
+
+/*
+This run solves the equation 2x2 + 1x – 3 = 0 correctly:
+OUPUT 1: 
+Enter the coefficients of a quadratic equation:
+      a: 2
+      b: 1
+      c: -3
+The equation is: 2*x*x + 1*x + -3 = 0
+The solutions are:
+      x1 = 1
+      x2 = -1.5
+Check:
+      a*x1*x1 + b*x1 + c = 0
+      a*x2*x2 + b*x2 + c = 0
+      
+      
+But this run attempts to solve the equation x2 + 10000000000x + 1 = 0 and fails:
+OUTPUT 2:  
+Enter the coefficients of a quadratic equation:
+      a: 1
+      b: 1e10
+      c: 1
+The equation is: 1*x*x + 1e10*x + 1 = 0
+The solutions are:
+      x1 = 0
+      x2 = -1e10
+Check:
+      a*x1*x1 + b*x1 + c = 1
+      a*x2*x2 + b*x2 + c = 1
+
+OUTPUT 3:  
+Enter the coefficients of a quadratic equation:
+      a: 1
+      b: 2
+      c: 3
+The equation is: 1*x*x + 2*x + 3 = 0
+The solutions are:
+      x1 = nan
+      x2 = nan
+Check:
+      a*x1*x1 + b*x1 + c = nan
+      a*x2*x2 + b*x2 + c = nan
+
+OUTPUT 4:  
+Enter the coefficients of a quadratic equation:
+      a: 0
+      b: 2
+      c: 5
+The equation is: 0*x*x + 2*x + 5 = 0
+The solutions are:
+      x1 = nan
+      x2 = -inf
+Check:
+      a*x1*x1 + b*x1 + c = nan
+      a*x2*x2 + b*x2 + c = nan
+      
+The quadratic equation 1x2 + 2x + 3 = 0 has no real solution because the discriminant b2 – 4ac is negative.
+
+
+OUTPUT 5:  
+Enter the coefficients of a quadratic equation:
+      a: 0
+      b: 2
+      c: 5
+The equation is: 0*x*x + 2*x + 5 = 0
+The solutions are:
+      x1 = nan
+      x2 = -inf
+Check:
+      a*x1*x1 + b*x1 + c = nan
+      a*x2*x2 + b*x2 + c = nan
+
+*/

@@ -1,0 +1,24 @@
+/* 
+sum an integer range
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int n;
+  cout << "Enter a positive integer: ";
+  cin >> n;
+  
+  long sum=0;
+  for (int i=1; i <= n; i++)  //runs as long as i <= n
+  sum += i;
+  cout << "The sum of the first " << n << " integers is " << sum;
+}
+
+/*
+OUPUT: 
+
+*/

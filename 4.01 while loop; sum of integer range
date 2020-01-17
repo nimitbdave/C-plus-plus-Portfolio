@@ -1,0 +1,27 @@
+/* 
+This program computes the sum 1 + 2 + 3 + ⋅⋅⋅ + n, for an input integer n:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int n, i=1;
+  cout << "Enter a positive integer: ";
+  cin >> n;
+  long sum=0;
+  while (i <= n)
+    sum += i++;
+  cout << "The sum of the first " << n << " integers is " << sum;
+}
+
+/*
+OUPUT: 
+Enter a positive integer: 8
+The sum of the first 8 integers is 36
+
+Enter a positive integer: 100
+The sum of the first 100 integers is 5050
+*/

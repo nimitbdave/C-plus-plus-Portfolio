@@ -1,0 +1,62 @@
+/* 
+Write and test a program that solves quadratic equations. A quadratic equation is an equation
+of the form ax2 + bx + c = 0, where a, b, and c are given coefficients and x is the unknown.
+The coefficients are real number inputs, so they should be declared of type float or
+double. Since quadratic equations typically have two solutions, use x1 and x2 for the
+solutions to be output. These should be declared of type double to avoid inaccuracies from
+round-off error. 
+
+
+The solution(s) to the quadratic equation is given by the quadratic formula.
+But this will not apply if a is zero, so that condition must be checked separately. The formula also fails
+to work (for real numbers) if the expression under the square root is negative. That expression b2 +
+4ac is called the discriminant of the quadratic. We define that as the separate variable d and check its
+sign.
+
+Note how we use the return statement inside the selection statements to terminate the program if
+either a is zero or d is negative. The alternative would have been to use an else clause in each if
+statement.
+*/
+
+#include <cfloat>
+#include <cmath>  // defines the sqrt() function
+#include <iostream>
+using namespace std; 
+
+
+int main()
+{ // solves the equation a*x*x + b*x + c == 0:
+  float a,b,c;
+  cout << "Enter coefficients of quadratic equation: ";
+  cin >> a >> b >> c;
+  if (a == 0)
+  { cout << "This is not a quadratic equation: a == 0\n";
+    return 0;
+  }
+  cout  << "The equation is: " << a << "x^2 + " << b
+        << "x + " << c << " = 0\n";
+  double d,x1,x2;
+  d = b*b - 4*a*c; // the discriminant
+  if (d < 0)
+  { cout << "This equation has no real solutions: d < 0\n";
+    return 0;
+  }
+  x1 = (-b + sqrt(d))/(2*a);
+  x2 = (-b - sqrt(d))/(2*a);
+  cout << "The solutions are: " << x1 << "," << x2 << endl;
+}
+
+/*
+OUPUT: 
+Enter coefficients of quadratic equation: 2 1 -6
+The equation is: 2x^2 + 1x + -6 = 0
+The solutions are: 1.5,-2
+
+Enter coefficients of quadratic equation: 1 4 5
+The equation is: 1x^2 + 4x + 5 = 0
+This equation has no real solutions: d < 0
+
+Enter coefficients of quadratic equation: 0 4 5
+This is not a quadratic equation: a == 0
+
+*/

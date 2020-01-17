@@ -1,0 +1,28 @@
+/* 
+This program prints all the factorial numbers up to an input limit:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ long bound;
+  cout << "Enter a positive integer: ";
+  cin >> bound;
+  cout << "Factorial numbers < " << bound << ":\n1,1";
+  long f=1,i=1;
+  do
+  { f *= ++i;         // f = f * (f+1)
+    cout << "," << f;  // Outputs this value 
+  }
+  while (f < bound);    // Loop continues until f > bound.  f is inputted by user.  
+}
+
+/*
+OUPUT: 
+Enter a positive integer: 1000000
+Factorial numbers < 1000000:
+1,1,2,6,24,120,720,5040,40320,362880
+*/

@@ -1,1 +1,32 @@
-p68
+/* 
+
+Write and run a program that reads two integers and then uses the conditional expression
+operator to print either “multiple” or “not” according to whether one of the integers is a multiple
+of the other.
+
+An integer m is a multiple of an integer n if the remainder from the integer division of m by n is 0. So
+the compound condition m % n == 0 || n % m == 0 tests whether either is a multiple of the
+other:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int m,n;
+  cin >> m >> n;
+  cout << (m % n == 0 || n % m == 0 ? "multiple" : "not") << endl;  //Evaluates to "multiple" if m % n == 0 || n % m == 0 is true
+                                                                    //Else cout << "not"
+}
+
+/*
+OUPUT: 
+
+30 4
+not
+
+30 5
+multiple
+*/

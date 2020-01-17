@@ -1,0 +1,33 @@
+/* 
+This runs the same as in 4.01: 
+as soon as the value of i reaches n, 
+the loop terminates and the
+output statement at the end of the program executes.
+
+Note that the control condition on the while loop itself is TRUE, 
+which means continue forever. 
+This is the standard way to code a while loop when it is being controlled from within.
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int n,i=1;
+  cout << "Enter a positive integer: ";
+  cin >> n;
+  long sum=0;
+  while (true)
+  { if (i > n) break; // terminates the loop immediately, once i becomes greater than n
+    sum += i++;
+  }
+  cout << "The sum of the first " << n << " integers is " << sum;
+}
+
+/*
+OUPUT: 
+Enter a positive integer: 100
+The sum of the first 100 integers is 5050
+*/

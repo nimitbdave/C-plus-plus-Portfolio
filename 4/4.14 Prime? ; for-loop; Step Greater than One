@@ -1,0 +1,39 @@
+/* 
+This program determines whether an input number is prime:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ long n;
+ 
+  cout << "Enter a positive integer: ";
+  cin >> n;
+  
+  if (n < 2) 
+    cout << n << " is not prime." << endl;  //Anything less than 2 is not prime.
+  else if (n < 4) 
+    cout << n << " is prime." << endl;      //
+  else if (n%2 == 0) 
+    cout << n << " = 2*" << n/2 << endl;    //If divisible by 2, not prime.  Return 2*(n/2).
+  else
+  { for (int d=3; d <= n/2; d += 2)                   //As long as d is lessthan/equalto n/2 [largest possible factor], loop continues, and increments by 2
+    if (n%d == 0)                                     //If no remainder, then not prime, and d is a factor.  
+    { cout << n << " = " << d << "*" << n/d << endl;  //Prints:  n = d*(n/d), to show which factor makes n non-prime.  
+      exit(0);
+    }
+    cout << n << " is prime." << endl;                //If no more factors, n is prime.
+  };
+}
+
+/*
+OUPUT: 
+Enter a positive integer: 101
+101 is prime.
+
+Enter a positive integer: 975313579
+975313579 = 17*57371387
+*/

@@ -1,5 +1,11 @@
 /* 
-This program prints all the Fibonacci numbers up to an input limit:
+This program prints all the Fibonacci numbers up to an input limit.
+
+This while loop contains a block of five statements. When the condition (f2 > bound) is
+evaluated to be true, the break statement executes, terminating the loop immediately, without executing
+the last three statements in that iteration.
+Note the use of the newline character \n in the string ":\n0,1" . This prints the colon : at the
+end of the current line, and then prints 0,1 at the beginning of the next line.
 */
 
 #include <cfloat>

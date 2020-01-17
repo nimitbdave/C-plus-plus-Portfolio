@@ -1,0 +1,32 @@
+/* 
+This program finds the maximum of a sequence of input numbers.
+
+
+This for loop is controlled by the input variable n; it continues until n ≤ 0. When an input variable
+controls a loop this way, it is called a sentinel.
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ int n, max;
+  cout << "Enter positive integers (0 to quit): ";
+  cin >> n;
+  
+  for (max = n; n > 0; )          //Sentinel until n ≤ 0
+  { if (n > max) 
+    max = n;        //If n is greater than max, then max becomes n.  
+    
+    cin >> n;       // User keeps inputting n.
+  }
+  cout << "max = " << max << endl;  //Outputs the maximum value inputted.
+}
+
+/*
+OUPUT: 
+Enter positive integers (0 to quit): 44 77 55 22 99 33 11 66 88 0
+max = 99
+*/

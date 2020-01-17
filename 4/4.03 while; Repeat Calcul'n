@@ -1,0 +1,34 @@
+/* 
+This program prints the square root of each number 
+input by the user. It uses a while loop to allow any
+number of computations in a single run of the program:
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ double x;
+  
+  cout << "Enter a positive number: ";
+  cin >> x;
+  
+  while (x > 0)
+  { cout << "sqrt(" << x << ") = " << sqrt(x) << endl;
+    cout << "Enter another positive number (or 0 to quit): ";
+    cin >> x;
+  }
+}
+
+/*
+OUPUT: 
+Enter a positive number: 49
+sqrt(49) = 7
+Enter another positive number (or 0 to quit): 3.14159
+sqrt(3.14159) = 1.77245
+Enter another positive number (or 0 to quit): 100000
+sqrt(100000) = 316.228
+Enter another positive number (or 0 to quit): 0
+*/

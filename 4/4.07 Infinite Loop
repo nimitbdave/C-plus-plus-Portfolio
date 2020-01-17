@@ -1,0 +1,33 @@
+/* 
+Without some termination mechanism, the loop will run forever. To abort its execution after it starts,
+press <Ctrl>+C (i.e., hold the Ctrl key down and press the C key on your keyboard):
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ long bound;
+  cout << "Enter a positive integer: ";
+  cin >> bound;
+  cout << "Fibonacci numbers < " << bound << ":\n0,1";
+  long f0=0,f1=1;
+  while (true) // ERROR: INFINITE LOOP! (Press <Ctrl>+C.)
+  { long f2 = f0 + f1;
+    cout << "," << f2;
+    f0 = f1;
+    f1 = f2;
+  }
+}
+
+/*
+OUPUT: 
+Enter a positive integer: 1000
+Fibonacci numbers < 1000:
+0,1,1,2,3,5,8, 13,21,34,55,89,144,233,377,610,987,1597
+81,6765,10946,177 11,28657,46368,75025,121393,196418,317811,5
+040,1346269,217830 9,3524578,5702887,9227465,14930352,24157817,
+63245986,102334155, 165580141,267914296,433494437,701408733,11349
+*/

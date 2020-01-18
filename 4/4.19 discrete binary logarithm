@@ -1,0 +1,59 @@
+/* 
+This program computes and prints the discrete binary logarithm of an input number 
+(the greatest integer ≤ the base 2 logarithm of the number). 
+The greatest integer which is just less than the base 2 logarithm 
+will be returned to the user.  
+
+It tests its loop invariant by printing the relevant values on
+each iteration:
+*/
+
+#include <cfloat>
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+#include <iomanip> // defines setw(), which adds spacebars
+
+using namespace std;
+
+// The greatest integer which is just less than the base 2 logarithm 
+// will be returned to the user.
+int main()
+{ long n;
+  cout << "Enter a positive integer: ";
+  cin >> n;                                   // n inputted
+  
+  int d=0;                                    // the discrete binary logarithm of n
+  double p2d=1;                               // This will be 2^d.
+  
+  for (int i=n; i > 1; i /= 2, d++)           // After each loop, i = i/2, d = d+1
+  { // INVARIANT: 2^d <= n/i < 2*2^d          //
+    p2d = pow(2,d);                           // This means 2^d.
+    
+    cout << setw(2) << p2d     << " <= " << setw(2) << n/i  
+         << " < "   << setw(2) << 2*p2d  << endl;           //https://www.geeksforgeeks.org/iomanip-setw-function-in-c-with-examples/
+  }
+  
+  p2d= pow(2,d);                               // This means 2^d.
+  
+  cout << setw(2) << p2d << " <= " << setw(2) << n
+       << " < " << setw(2) << 2*p2d << endl;
+  cout << " The discrete binary logarithm of " << n
+       << " is " << d << endl;                // d: discrete
+  
+  double lgn = log(n)/log(2);                 // base 2 logarithm of n  (lgn: continuous)
+  cout << "The continuous binary logarithm of " << n
+       << " is " << lgn << endl;
+}
+
+/*
+OUPUT: 
+Enter a positive integer: 63
+ 1 <=  1 < 2
+ 2 <=  2 < 4
+ 4 <=  4 < 8
+ 8 <=  9 < 16
+16 <= 21 < 32
+32 <= 63 < 64
+The discrete binary logarithm of 63 is 5
+The continuous binary logarithm of 63 is 5.97728
+*/

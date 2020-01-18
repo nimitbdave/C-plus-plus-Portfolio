@@ -1,0 +1,30 @@
+/* 
+The two control variables m and n are declared and initialized in the control mechanism of this for
+loop. Then m is decremented by 3 and n is incremented on each iteration of the loop, generating the
+sequence of (m,n) pairs (95,11), (92,12), (89,13), (86,14), (83,15), (80,16). The loop terminates with the
+pair (80,16) because 16 divides 80.
+
+
+*/
+
+#include <cfloat>
+#include <cmath>
+#include <iostream>
+using namespace std; 
+
+int main()
+{ //The for loop in this program uses two control variables:
+
+  for (int m=95, n=11; m%n > 0; m -= 3, n++)        //This for loop performs n = n+1 && m = m-3 as long as m/n has a remainder.
+    cout << m << "%" << n << " = " << m%n << endl;
+}
+
+/*
+OUPUT: 
+95%11 = 7
+92%12 = 8
+89%13 = 11
+86%14 = 2
+83%15 = 8
+
+*/

@@ -3,8 +3,9 @@
 */
 
 #include <cfloat>
-#include <cmath>
-#include <iostream>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
 using namespace std; 
 
 int main()

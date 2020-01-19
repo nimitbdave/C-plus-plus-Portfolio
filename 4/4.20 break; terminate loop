@@ -1,0 +1,31 @@
+/* 
+This program has the same effect as the one in 4.01. It uses a break statement to
+control the loop:
+*/
+
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ int n,i=1;
+  cout << "Enter a positive integer: ";
+  cin >> n;
+  
+  long sum=0;
+  while (true)          
+  { if (i > n) break;   //Breaks the loop once i is greater than n.  
+    sum += i++;         //Loop adds:  sum = sum + (i = i+1); sum: sum up till 8 = (sum: 7+6+5+4+3+2+1) + (i: 8=7+1)
+                        //Here n is 8 and i is 7, which then is added and becomes 8, which means 8 !> 8 or i ?> n, and thus loop breaks.
+  }
+  cout << "The sum of the first " << n << " integers is " << sum;
+}
+
+/*
+OUPUT: 
+Enter a positive integer: 8
+The sum of the first 8 integers is 36
+
+*/

@@ -1,0 +1,42 @@
+/* 
+
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // prints pseudo-random numbers:
+  unsigned seed = time(NULL);          // uses the system clock
+  cout << "seed = " << seed << endl;
+  
+  srand(seed);                          // initializes the seed
+  int min,max;
+  
+  cout << "Enter minimum and maximum: ";
+  cin >> min >> max;                    // lowest and highest numbers
+  
+  int range = max - min + 1;            // number of numbers in range
+  for (int i = 0; i < 20; i++)
+  { int r = rand()/100%range + min;
+    cout << r << " ";
+  }
+  cout << endl;
+}
+
+/*
+OUPUT: 
+seed = 808237677
+Enter minimum and maximum: 1 100
+85 57 1 10 5 73 81 43 46 42 17 44 48 9 3 74 41 4 30 68
+
+seed = 808238101
+Enter minimum and maximum: 22 66
+63 29 56 22 53 57 39 56 43 36 62 30 41 57 26 61 59 26 28  
+*/

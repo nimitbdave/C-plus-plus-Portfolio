@@ -49,4 +49,29 @@ seed = 808148160
 440402904
 
 Outputs received using a UNIX workstation running a Motorola processor.
+
+On the first run, the time() function returns the integer 808,148,157 which is used to “seed” the random
+number generator. The second run is done 3 seconds later, so the time() function returns the integer
+808,148,160 which generates a completely different sequence.
+
+Here are two runs using a Windows PC running an Intel processor:
+seed = 943364015
+2948
+15841
+72
+25506
+30808
+29709
+13115
+2527
+
+seed = 943364119
+17427
+20464
+13149
+5702
+12766
+1424
+16612
+31746
 */

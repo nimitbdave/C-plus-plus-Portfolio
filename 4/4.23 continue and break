@@ -1,0 +1,41 @@
+/* 
+
+*/
+
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ int n;
+  for (;;)  //forever
+  { cout << "Enter int: "; 
+    cin >> n;
+    
+    if (n%2 == 0)     //if divisible by 2, continue
+      continue;
+    if (n%3 == 0)     //if divisible by 3, break
+      break;
+    
+    cout << "\tBottom of loop.\n";
+  }
+  cout << "\tOutside of loop.\n";
+}
+
+/*
+OUPUT: 
+Enter int: 7
+    Bottom of loop.
+Enter int: 4
+Enter int: 9
+    Outside of loop.
+    
+When n has the value 7, both if conditions are false and control reaches the bottom of the loop. When
+n has the value 4, the first if condition is true (4 is a multiple of 2), so control skips over the rest of the
+statements in the loop and jumps immediately to the top of the loop again to continue with its next
+iteration. When n has the value 9, the first if condition is false (9 is not a multiple of 2) but the second if
+condition is true (9 is a multiple of 3), so control breaks out of the loop and jumps immediately to the first
+statement that follows the loop.
+*/

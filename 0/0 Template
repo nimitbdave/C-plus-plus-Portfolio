@@ -2,6 +2,7 @@
 
 */
 
+#include <cstdlib> // defines the rand() function and RAND_MAX const
 #include <cfloat>
 #include <iomanip> // defines setw()
 #include <cmath> // defines pow() and log()

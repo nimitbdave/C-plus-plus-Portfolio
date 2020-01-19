@@ -1,0 +1,41 @@
+/* 
+This program uses the rand() function to generate pseudo-random numbers:
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // prints pseudo-random numbers:
+  for (int i = 0; i < 8; i++)
+    cout << rand() << endl;
+  cout << "RAND_MAX = " << RAND_MAX << endl;
+}
+
+/*
+OUPUT: 
+1103527590
+377401575
+662824084
+1147902781
+2035015474
+368800899
+1508029952
+486256185
+RAND_MAX = 2147483647
+
+1103527590
+377401575
+662824084
+1147902781
+2035015474
+368800899
+1508029952
+486256185
+RAND_MAX = 2147483647
+
+*/

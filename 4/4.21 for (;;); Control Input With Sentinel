@@ -1,0 +1,50 @@
+/* 
+This program reads a sequence of positive integers, terminated by 0, and prints their average:
+*/
+
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ int n,count=0,sum=0;
+  
+  cout << "Enter positive integers (0 to quit):" << endl;
+  
+  for (;;)     // loop runs "forever"
+  { cout << "\t" << count + 1 << ": ";      // tab + count+1 + :
+    cin >> n;                                 // input
+
+    if (n <= 0) break;                        // when n is less than 0, break
+    ++count;                                  // ++i def: https://stackoverflow.com/questions/24853/c-what-is-the-difference-between-i-and-i
+    sum += n;                                 // sum = sum + n
+  }
+  cout << "The average of those " << count << " positive numbers is "
+       << float(sum)/count        << endl;
+}
+
+/*
+OUPUT: 
+Enter positive integers (0 to quit):
+        1: 4
+        2: 7
+        3: 1
+        4: 5
+        5: 2
+        6: 0
+The average of those 5 positive numbers is 3.8
+***
+When 0 is input, the break executes, immediately terminating the for loop and transferring
+execution to the final output statement. Without the break statement, the ++count statement would
+have to be put in a conditional, or count would have to be decremented outside the loop or initialized to
+–1.
+
+Note that all three parts of the for loop’s control mechanism are empty: for (;;). This construct is
+pronounced “forever.” Without the break, this would be an infinite loop.
+
+When used within nested loops, the break statement applies only to the loop to which it
+directly belongs; outer loops will continue, unaffected by the break. This is illustrated by the following
+example.
+*/

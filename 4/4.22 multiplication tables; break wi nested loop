@@ -1,0 +1,44 @@
+/* 
+When y > x,
+the execution of the inner y loop terminates
+and the next iteration of the outer x loop begins. 
+
+For example, when x = 3, the y loop iterates 3 times (with y = 1, 2, 3), 
+printing 3 6 9. 
+Then on its 4th iteration, the condition (y > x) is true, so the break statement executes, transferring control
+immediately to the cout << endl statement (which is outside of the inner y loop). Then the outer x
+loop begins its 4th iteration with x = 4.
+*/
+
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ for (int x=1; x <= 12; x++)     //This is the x loop, which starts once the inner y loop terminates.  It creates an endl.  
+  { for (int y=1; y <= 12; y++)   // y loop, executes until y is less than/equal to 12. 
+      if (y > x)    //When y > x, the execution of the inner y loop terminates and the next iteration of the outer x loop begins.
+        break;      // We don't need y to be greater than x, because then it would repeat in the next line.  This is to cancel out repetition.
+      else 
+        cout << setw(4) << x*y;   // y loop:  multiplies x and y, and restarts loop with y = y+1.  
+    cout << endl;                 // x loop:  adds endline, and restarts loop with x = x+1
+  }
+}
+
+/*
+OUPUT: 
+1
+2 4
+3 6 9
+4 8 12 16
+5 10 15 20 25
+6 12 18 24 30 36
+7 14 21 28 35 42 49
+8 16 24 32 40 48 56 64
+9 18 27 36 45 54 63 72 81
+10 20 30 40 50 60 70 80 90 100
+11 22 33 44 55 66 77 88 99 110 121
+12 24 36 48 60 72 84 96 108 120 132 144
+*/

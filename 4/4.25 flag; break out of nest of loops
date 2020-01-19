@@ -1,0 +1,41 @@
+/* 
+When the done flag becomes true, both the innermost k loop and the middle j loop will terminate, and
+the outer i loop will finish its current iteration by printing the dot, advancing to the beginning of the next
+line, and resetting the done flag to false. Then it starts its next iteration, same as 4.24.  
+*/
+
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+
+
+
+
+int main()
+{ const int N=5;
+  bool done=false;
+  for (int i=0; i<N; i++)                     //start
+  { for (int j=0; j<N && !done; j++)
+    { for (int k=0; k<N && !done; k++)
+        if (i+j+k>N) 
+          done = true;                        //when done becomes true, inner k loop and middle j loop terminate, 
+        else 
+          cout << i+j+k << " "; 
+      cout << "* ";                           //and outer i loop finishes iteration and prints ".", resetting done to false.
+    }
+    cout << "." << endl; // inside the i loop,outside the j loop
+    done = false;
+  }                                           //then starts its next iteration.
+}
+
+/*
+OUPUT: 
+0 1 2 3 4 * 1 2 3 4 5 * 2 3 4 5 .
+1 2 3 4 5 * 2 3 4 5 .
+2 3 4 5 .
+3 4 5 .
+4 5 .
+*/

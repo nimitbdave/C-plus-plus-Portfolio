@@ -1,0 +1,63 @@
+/* 
+When the goto is reached inside the innermost k loop, program execution jumps out to the labeled
+output statement at the bottom of the outermost i loop. Since that is the last statement in the i loop, the i
+loop will go on to its next iteration after executing that statement.
+
+When i and j are 0, the k loop iterates 5 times, printing 0 1 2 3 4 followed by a star *. Then j
+increments to 1 and the k loop iterates 5 times again, printing 1 2 3 4 5 followed by a star *. Then j
+increments to 2 and the k loop iterates 4 times, printing 2 3 4 5. But then on the next iteration of the k
+loop, i = 0, j = 2, and k = 4, so i+j+k = 6, causing the goto statement to execute for the first time. So
+execute jumps immediately to the labeled output statement, printing a dot and advancing to the next line.
+Note that both the k loop and the j loop are aborted before finishing all their iterations.
+
+Now i = 1 and the middle j loop begins iterating again with j = 0. The k loop iterates 5 times, printing
+1 2 3 4 5 followed by a star *. Then j increments to 1 and the k loop iterates 4 times, printing 2 3
+4 5. But then on the next iteration of the k loop, i = 1, j = 2, and k = 3, so i+j+k = 6, causing the goto
+statement to execute for the second time. Again execution jumps immediately to the labeled output
+statement, printing a dot and advancing to the next line.
+
+On the subsequent three iterations of the outer i loop, the inner k loop never completes its iterations
+because i+j+4 is always greater than 5 (because i is greater than 2). So no more stars are printed.
+
+Note that the labeled output statement could be placed inside any of the loops or even outside of all of
+them. In the latter case, the goto statement would terminate all three of the loops in the nest.
+
+Also note how the labeled statement is indented. The convention is to shift it to the left one indentation
+level to make it more visible. If it were not a labeled statement, it would be indented as
+      }
+      cout << "." << endl;
+    }
+instead of
+      }
+    esc: cout << "." << endl;
+    }
+
+*/
+
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ const int N=5;
+  for (int i=0; i<N; i++)
+  { for (int j=0; j<N; j++)
+    { for (int k=0; k<N; k++)
+        if (i+j+k>N) goto esc;  //When goto reached, program jumps to cout statement in outermost loop
+        else cout << i+j+k << " ";
+      cout << "* ";
+    }
+  esc: cout << "." << endl; // inside the i loop,outside the j loop   //goto esc jumps to the esc: here.  
+  }
+}
+
+/*
+OUPUT: 
+0 1 2 3 4 * 1 2 3 4 5 * 2 3 4 5 .
+1 2 3 4 5 * 2 3 4 5 .
+2 3 4 5 .
+3 4 5 .
+4 5 .
+*/

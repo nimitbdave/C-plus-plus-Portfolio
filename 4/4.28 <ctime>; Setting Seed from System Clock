@@ -1,0 +1,52 @@
+/* 
+The problem of having to enter a seed value interactively can be overcome by using the computer’s
+system clock. The system clock keeps track of the current time in seconds. The
+time() function defined in the header file <ctime> returns the current time as an unsigned
+integer. This then can be used as the seed for the rand() function.
+
+This program is the same as the one in 4.27 except that it sets the pseudo-random number
+generator’s seed from the system clock.
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // prints pseudo-random numbers:
+  unsigned seed = time(NULL);         // uses the system clock
+  cout << "seed = " << seed << endl;
+  srand(seed);                        // initializes the seed
+  for (int i = 0; i < 8; i++)
+    cout << rand() << endl;
+}
+
+/*
+OUPUT: 
+seed = 808148157
+1877361330
+352899587
+1443923328
+1857423289
+200398846
+1379699551
+1622702508
+715548277
+
+seed = 808148160
+892939769
+1559273790
+1468644255
+952730860
+1322627253
+1305580362
+844657339
+440402904
+
+Outputs received using a UNIX workstation running a Motorola processor.
+*/

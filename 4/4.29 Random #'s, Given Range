@@ -1,5 +1,12 @@
 /* 
+The first run generates 20 integers uniformly distributed between 1 and 100. The second run generates
+20 integers uniformly distributed between 22 and 66.
 
+In the for loop, we divide rand() by 100 first to strip way the two right-most digits of the random
+number. This is to compensate for the problem that this particular random number generator has of
+producing numbers that alternate odd and even. Then rand()/100%range produces random numbers
+in the range 0 to range-1, and rand()/100%range + min produces random numbers in the range
+min to max.
 */
 
 #include <cstdlib> // defines the rand() function and RAND_MAX const
@@ -14,7 +21,7 @@ using namespace std;
 int main()
 { // prints pseudo-random numbers:
   unsigned seed = time(NULL);          // uses the system clock
-  cout << "seed = " << seed << endl;
+  cout << "seed = " << seed << endl;    // print seed to show differences of randomness at each time
   
   srand(seed);                          // initializes the seed
   int min,max;

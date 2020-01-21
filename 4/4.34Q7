@@ -1,0 +1,36 @@
+/* 
+Write and run a program that uses a while loop 
+to compute and print the sum of a given
+number of squares. For example, if 5 is input, then the program will print 55, which equals 1^2
++ 2^2 + 3^2 + 4^2 + 5^2.
+
+
+This program uses a while loop to compute the sum of the first n squares, where n is input:
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ int n;
+  cout << "Enter a positive integer: ";
+  cin >> n;
+  int sum=0,i=0;
+  while (i++ < n)  //computes whether i < n, and then adds i = i + 1
+    sum += i*i;
+  cout << "The sum of the first " << n << " squares is "
+       << sum << endl;
+}
+
+/*
+OUPUT: 
+Enter a positive integer: 6
+The sum of the first 6 squares is 91
+
+*/

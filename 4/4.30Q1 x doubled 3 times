@@ -1,0 +1,28 @@
+/* 
+Trace the following code fragment, showing the value of each variable each time it changes:
+    
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    float x = 4.15;
+    for (int i=0; i < 3; i++)
+      x *= 2;
+}
+
+/*
+OUPUT: 
+
+
+First, x is initialized to 4.15 and i is initialized to 0. Then x is doubled three times by the three iterations
+of the for loop.
+*/

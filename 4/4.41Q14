@@ -1,0 +1,36 @@
+/* 
+Implement the Euclidean Algorithm for finding the greatest common divisor of two given
+positive integers. This algorithm transforms a pair of positive integers (m, n) into a pair (d, 0)
+by repeatedly dividing the larger integer by the smaller integer and replacing the larger with
+the remainder. When the remainder is 0, the other integer in the pair will be the greatest common
+divisor of the original pair (and of all the intermediate pairs). For example, if m is 532
+and n is 112, then the Euclidean Algorithm reduces the pair (532,112) to (28,0) by
+(532,112) → (112,84) → (84,28)→ (28,0).
+
+So 28 is the greatest common divisor of 532 and 112. This result can be verified from the
+facts that 532 = 28·19 and 112 = 28·8. The reason that the Euclidean Algorithm works is that
+each pair in the sequence has the same set of divisors, which are precisely the factors of the
+greatest common divisor. In the example above, that common set of divisors is {1, 2, 4, 7, 14,
+28}. The reason that this set of divisors is invariant under the reduction process is that when
+m = n·q + r, a number is a common divisor of m and n if and only if it is a common divisor of
+n and r.
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+
+/*
+OUPUT: 
+
+*/

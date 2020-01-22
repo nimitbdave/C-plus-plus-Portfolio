@@ -1,0 +1,26 @@
+/* 
+Write and run a program that reverses the digits of a given positive integer. (See Problem
+3.13.)
+
+The trick here is to strip off the digits one at a time from the given integer and “accumulate” them in
+reverse in another integer:
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+
+/*
+OUPUT: 
+
+*/

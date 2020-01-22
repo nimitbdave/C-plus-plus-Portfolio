@@ -1,0 +1,43 @@
+/* 
+Write and run a program that directly implements the quotient operator / and the remainder
+operator % for the division of positive integers.
+
+This program directly implements the quotient operator / and the remainder operator % for the
+division of positive integers. The algorithm used here, applied to the fraction n/d, repeatedly subtracts
+the d from the n until n is less than d. At that point, the value of n will be the remainder, and
+the number q of iterations required to reach it will be the quotient:
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ int n,d,q,r;
+  
+  cout << "Enter numerator: ";
+  cin >> n;
+  cout << "Enter denominator: ";
+  cin >> d;
+  
+  for (q = 0,r = n; r >= d; q++)
+    r -= d;
+  cout << n << " / " << d << " = " << q << endl;
+  cout << n << " % " << d << " = " << r << endl;
+  cout << "(" << q << ")(" << d << ") + (" << r << ") = "
+       << n << endl;
+}
+
+/*
+OUPUT: 
+Enter numerator: 30
+Enter denominator: 7
+30 / 7 = 4
+30 % 7 = 2
+(4)(7) + (2) = 30
+*/

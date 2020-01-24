@@ -7,7 +7,7 @@
 //#include <time.h> // use this if <ctime> is not recognized
 #include <cfloat>
 #include <iomanip> // defines setw()
-#include <cmath> // defines pow() and log()
+#include <cmath> // defines pow() and log(), fabs()
 #include <iostream> // defines cin and cout
 using namespace std; 
 

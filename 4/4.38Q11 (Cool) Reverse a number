@@ -31,4 +31,11 @@ int main()
 OUPUT: 
 Enter a positive integer: 123456
 The reverse is 654321
+
+
+In this run, m begins with the value 123,456. In the first iteration of the loop, d is assigned the digit 6,
+m is reduced to 12,345, and n is increased to 6. On the second iteration, d is assigned the digit 5, m is
+reduced to 1,234, and n is increased to 65. On the third iteration, d is assigned the digit 4, m is reduced
+to 123, and n is increased to 654. This continues until, on the sixth iteration, d is assigned the digit 1,
+m is reduced to 0, and n is increased to 654,321.
 */

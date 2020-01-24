@@ -1,0 +1,42 @@
+/* 
+Apply the Babylonian Algorithm to compute the square root of 2. This algorithm (so called
+because it was used by the ancient Babylonians) computes by repeatedly replacing one
+estimate x with the closer estimate (x + 2/x)/2. Note that this is simply the average of x and
+2/x.
+
+We use a “tolerance” of 5e-8 (= 0.00000005) to ensure accuracy to 7 decimal places. The fabs()
+function (for “floating-point absolute value”), defined in the <cmath> header file, returns the absolute
+value of the expression passed to it. So the loop continues until x*x is within the given tolerance
+of 2.
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{   const double TOLERANCE = 5e-8;
+    double x = 2.0;
+    
+    while (fabs(x*x - 2.0) > TOLERANCE)
+    { cout << x << endl;
+      x = (x + 2.0/x)/2.0; // average of x and 2/x
+    }
+    cout << "x = " << x << ", x*x = " << x*x << endl;
+}
+
+/*
+OUPUT: 
+2
+1.5
+1.41667
+1.41422
+x = 1.41421,x*x = 2
+
+
+*/

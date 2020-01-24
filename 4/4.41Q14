@@ -26,11 +26,28 @@ n and r.
 using namespace std; 
 
 int main()
-{ // 
+{   int m,n,r;
+    cout << "Enter two positive integers: ";
+    cin >> m >> n;
     
+    if (m < n) 
+    { 
+        int temp = m; m = n; n = temp; 
+        
+    } // make m >= n
+    cout << "The g.c.d. of " << m << " and " << n << " is ";
+    
+    while (n > 0)
+    {   r = m % n;          
+        m = n;
+        n = r;
+    }
+    cout << m << endl;
 }
 
 /*
 OUPUT: 
+Enter two positive integers: 532 112
+The g.c.d. of 532 and 112 is 28
 
 */

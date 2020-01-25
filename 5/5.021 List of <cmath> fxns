@@ -1,0 +1,15 @@
+Function Description Example
+acos(x)       inverse cosine of x (in radians)    acos(0.2) returns 1.36944
+asin(x)       inverse sine of x (in radians)      asin(0.2) returns 0.201358
+atan(x)       inverse tangent of x (in radians)   atan(0.2) returns 0.197396
+ceil(x)       ceiling of x (rounds up)            ceil(3.141593) returns 4.0
+cos(x)        cosine of x (in radians)            cos(2) returns -0.416147
+exp(x)        exponential of x (base e)           exp(2) returns 7.38906
+fabs(x)       absolute value of x                 fabs(-2) returns 2.0
+floor(x)      floor of x (rounds down)            floor(3.141593) returns 3.0
+log(x)        natural logarithm of x (base e)     log(2) returns 0.693147
+log10(x)      common logarithm of x (base 10)     log10(2) returns 0.30103
+pow(x,p)      x to the power p                    pow(2,3) returns 8.0
+sin(x)        sine of x (in radians)              sin(2) returns 0.909297
+sqrt(x)       square root of x                    sqrt(2) returns 1.41421
+tan(x)        tangent of x (in radians)           tan(2) returns -2.18504

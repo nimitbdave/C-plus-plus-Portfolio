@@ -1,0 +1,37 @@
+/* 
+Here is another program that uses the <cmath> header. Its purpose is to verify empirically the
+identity sin2x = 2 sinx cos x.
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // tests the identity sin 2x = 2 sin x cos x:
+
+  for (float x=0; x < 2; x += 0.2)
+    cout << x << "\t\t" << sin(2*x) << "\t"     // calculate sin(2x)
+         << 2*sin(x)*cos(x) << endl;            // calculate 2sin(x)cos(x)
+}
+
+/*
+OUPUT: 
+0       0             0
+0.2     0.389418      0.389418
+0.4     0.717356      0.717356
+0.6     0.932039      0.932039
+0.8     0.999574      0.999574
+1       0.909297      0.909297
+1.2     0.675463      0.675463
+1.4     0.334988      0.334988
+1.6     -0.0583744    -0.0583744
+1.8     -0.442521     -0.442521
+
+
+*/

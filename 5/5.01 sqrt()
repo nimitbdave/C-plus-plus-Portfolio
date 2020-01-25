@@ -1,0 +1,43 @@
+/* 
+The square root of a given positive number is the number whose square is the given number. The
+square root of 9 is 3 because the square of 3 is 9. We can think of the square root function as a “black
+box.” When you put in a 9, out comes a 3. When the number 2 is input, the number 1.41421 is output. This
+function has the same input-process-output nature that complete programs have. However, the processing
+step is hidden: we do not need to know what the function does to 2 to produce 1.41421. All we need to
+know is that the output 1.41421 does have the square root property: its square is the input 2.
+
+Here is a simple program that uses the predefined square root function:
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // tests the sqrt() function:
+  for (int x=0; x < 6; x++)
+    cout << "\t" << x << "\t" << sqrt(x) << endl;
+}
+
+/*
+OUPUT: 
+0 0
+1 1
+2 1.41421
+3 1.73205
+4 2
+5 2.23607
+
+This program prints the square roots of the numbers 0 through 5. Each time the expression sqrt(x)
+is evaluated in the for loop, the sqrt() function is executed. Its actual code is hidden away within the
+Standard C++ Library. In using it, we may confidently assume that the expression sqrt(x) will be
+replaced by the actual square root of whatever value x has at that moment.
+Notice the directive #include <cmath> on the first line of the program. This is necessary for the
+compiler to find the definition of the sqrt() function. It tells the compiler that the function is declared
+in the <cmath> header file.
+*/

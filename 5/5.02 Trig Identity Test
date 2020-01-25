@@ -33,5 +33,7 @@ OUPUT:
 1.6     -0.0583744    -0.0583744
 1.8     -0.442521     -0.442521
 
-
+The program prints x in the first column, sin 2x in the second column, and 2 sin x cos x in the third
+column. For each value of x tested, sin 2x = 2 sin x cos x. Of course, this does not prove the identity, but it
+does provide convincing empirical evidence of its truth.
 */

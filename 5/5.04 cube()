@@ -1,0 +1,41 @@
+
+/* 
+Here is a simple example of a user-defined function:
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int cube(int x)
+{ // returns cube of x:
+  return x*x*x;
+}
+
+int main()
+{ // tests the cube() function:
+  int n=1;
+  while (n != 0)
+  { cin >> n;
+    cout << "\tcube(" << n << ") = " << cube(n) << endl;
+  }
+}
+
+/*
+OUPUT: 
+5
+cube(5) = 125
+-6
+cube(-6) = -216
+0
+cube(0) = 0
+
+This reads integers and prints their cubes until the user inputs the sentinel value 0. Each integer read is
+passed to the cube() function by the call cube(n). The value returned by the function replaces the
+expression cube(n) and then is passed to the output object cout.
+*/

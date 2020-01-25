@@ -1,0 +1,27 @@
+/* 
+
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int cube(int x)
+{ // returns cube of x:
+  return x*x*x;
+}
+
+int main()
+{ // 
+    
+}
+
+/*
+OUPUT: 
+
+*/

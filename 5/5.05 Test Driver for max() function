@@ -1,0 +1,45 @@
+/* 
+Here is a function with two parameters. It returns the larger of the two values passed to it.
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int max(int x, int y)
+{ // returns larger of the two given integers:
+  if (x < y) return y;
+  else return x;
+}
+
+int main()
+{ // tests the max() function:
+  int m,n;
+  do
+  { cin >> m >> n;
+    cout << "\tmax(" << m << "," << n << ") = " << max(m,n) << endl;
+  }
+  while (m != 0);
+}
+
+/*
+OUPUT: 
+5 8
+    max(5,8) = 8
+4 -3
+    max(4,-3) = 4
+0 0
+    max(0,0) = 0
+    
+    
+the value of m is assigned to x and 
+the value of n is assigned to y. 
+When passed by value, arguments may be constants or general expressions. 
+For example, the max() function could be called by max(44,5*m-n). 
+This would assign 44 to x and the value of the expression 5*m-n to y.
+*/

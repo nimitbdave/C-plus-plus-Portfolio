@@ -1,0 +1,56 @@
+/* 
+This shows one way that the max function and its test driver could be compiled separately. The test
+driver is in a file named test_max.cpp and the function is in a separate file named max.cpp.
+
+UNIX compilation commands:
+$ c++ -c max.c
+$ c++ -c test_max.c
+$ c++ -o test_max test_max.o max.o
+$ test_max
+
+(Here the dollar sign is the system prompt.) The first command compiles the max function, the second
+command compiles the test driver separately, the third command links them together to produce the executable
+module test_max, which is then run by the command on the fourth line.
+*/
+
+test_max.cpp
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int max(int,int);
+// returns larger of the two given integers:
+
+int main()
+{ // tests the max() function:
+  int m,n;
+  do
+  { cin >> m >> n;
+    cout << "\tmax(" << m << "," << n << ") = " << max(m,n) << endl;
+  }
+  while (m != 0);
+}
+
+
+
+
+max.cpp
+
+int max(int x,int y)
+{ if (x < y) return y;
+  else return x;
+}
+
+
+
+
+/*
+OUPUT: 
+
+*/

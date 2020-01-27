@@ -1,7 +1,7 @@
 /* 
 
 */
-
+#include <cctype> // defines the functions isdigit(), islower(), etc.
 #include <cstdlib> // defines the rand() function and RAND_MAX const
 #include <ctime> // defines the time() function
 //#include <time.h> // use this if <ctime> is not recognized

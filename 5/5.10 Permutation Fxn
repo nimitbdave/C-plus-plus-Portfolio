@@ -1,0 +1,62 @@
+/* 
+Permutation Formula:
+
+P(n, k) = n!/(n – k)!
+
+P(5, 2) = 5!/(5 – 2)! = 5!/3! = 120/6 = 20
+
+So there are 20 different permutations of 2 items taken from a set of 5. For example, here are the 20 different
+permutations of length 2 taken from the set {A, B, C, D, E}: 
+AB, AC, AD, AE, BC, BD, BE, CD, CE, DE, 
+BA, CA, DA, EA, CB, DB, EB, DC, EC, ED.
+*/
+
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+long perm(int n,int k)
+{ // returns P(n,k), the number of permutations of k from n:
+  if (n < 0 || k < 0 || k > n) return 0;
+  return fact(n)/fact(n-k);
+}
+
+/*
+Notice that the condition (n < 0 || k < 0 || k > n) is used to handle the cases where either
+parameter is out of range. In these cases the function returns an “impossible” value, 0, to indicate that its
+input was erroneous. That value would then be recognized by the calling program as an “error flag.”
+
+Here is a test driver for the perm() function:
+*/
+long perm(int,int);
+// returns P(n,k), the number of permutations of k from n;
+
+int main()
+{ // tests the perm() function:
+  for (int i = -1; i < 8; i++)
+  { for (int j=-1; j <= i+1; j++)
+      cout << " " << perm(i,j);
+    cout << endl;
+  }
+}
+
+/*
+OUPUT: 
+0 0
+0 1 0
+0 1 1 0
+0 1 2 2 0
+0 1 3 6 6 0
+0 1 4 12 24 24 0
+0 1 5 20 60 120 120 0
+0 1 6 30 120 360 720 720 0
+0 1 7 42 210 840 2520 5040 5040 0
+
+Note that the test driver checks the “exceptional cases where i < 0, j < 0, and j > i. Such values are
+called boundary values because they lie on the boundary of the output set (where perm() returns 0).
+*/

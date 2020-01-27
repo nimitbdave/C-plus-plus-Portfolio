@@ -61,4 +61,21 @@ December 7,1941
 May 16,1994
 0 0 0
 Error: parameter out of range.
+
+The printDate() function returns no value. Its only purpose is to print the date. So its return type
+is void. The function uses a switch statement to print the month as a literal, and it prints the day and
+year as integers.
+
+Note that the function returns without printing anything if the parameters are obviously out of range
+(e.g., m > 12 or y < 0). But impossible values such as February 31,1996 would be printed.  
+Corrections for these anomalies can be made later.
+
+Since a void function does not return a value, it need not include a return statement. If it
+does have a return statement, then it should appear simply as
+  return;
+with no expression following the keyword return. In this case, the purpose of the return
+statement is simply to terminate the function.
+  A function with no return value is an action. Accordingly, it is usually best to use a verb
+phrase for its name. For example, the above function is named printDate instead of some
+noun phrase like date.
 */

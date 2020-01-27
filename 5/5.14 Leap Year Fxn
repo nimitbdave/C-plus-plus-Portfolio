@@ -1,0 +1,58 @@
+/* 
+A leap year is a year in which one extra day (February 29) is added to the regular calendar. Most of us
+know that the leap years are the years that are divisible by 4. For example, 1992 and 1996 are leap years.
+Most people, however, do not know that there is an exception to this rule: centennial years are not leap
+years. For example, 1800 and 1900 are not leap years. Furthermore, there is an exception to the exception:
+centennial years which are divisible by 400 are leap years. Thus, the year 2000 is a leap year.
+
+Here is a boolean function that implements this definition:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+bool isLeapYear(int);
+// returns true iff y is a leap year;
+
+int main()
+{ // tests the isLeapYear() function:
+  int n;
+  
+  do
+  { cin >> n;
+    if (isLeapYear(n)) 
+      cout << n << " is a leap year.\n";
+    else 
+      cout << n << " is not a leap year.\n";
+  }
+  while (n > 1);
+
+}
+
+bool isLeapYear(int y)
+{ // returns true iff y is a leap year:
+  return y % 4 == 0 && y % 100 != 0 || y % 400 == 0;
+}
+
+/*
+The compound condition y % 4 == 0 && y % 100 != 0 || y % 400 == 0 will be true
+precisely when y is divisible by 4 but not by 100 unless it is also divisible by 400. In these cases the
+function returns true; in all other cases it returns false.
+*/
+
+/*
+OUPUT: 
+2000
+2000 is a leap year.
+2001
+2001 is not a leap year.
+0
+0 is a leap year.
+*/

@@ -1,0 +1,59 @@
+/* 
+This function works by looking for a divisor d of the given number n. It tests divisibility by the value of
+the condition (n%d == 0). This will be true precisely when d is a divisor of n. In that case, n cannot be
+a prime number, so the function immediately returns false. If the for loop finishes without finding any
+divisors of n, then the function returns true.
+
+We can stop searching for divisors once we get past the square root of n because if n is a product d*a,
+then one of these factors must be less than or equal to the square root of n. We define the sqrtn outside
+the loop so that it only has to be evaluated once.
+
+It is also more efficient to check for even numbers (n%2 == 2) first. This way, once we get to the
+for loop, we need only check for odd divisors. This is done by incrementing the divider d by 2 on each
+iteration.
+
+Here is a boolean function that determines whether an integer is a prime number:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+bool isPrime(int);
+// returns true if n is prime,false otherwise;
+
+
+int main()
+{ for (int n=0; n < 80; n++)
+    if (isPrime(n)) cout << n << " ";
+  cout << endl;
+}
+
+bool isPrime(int n)
+{ // returns true if n is prime, false otherwise:
+  float sqrtn = sqrt(n);
+  if (n < 2) return false;              // 0 and 1 are not primes
+  if (n < 4) return true;               // 2 and 3 are the first primes
+  if (n%2 == 0) return false;           // 2 is the only even prime
+  for (int d=3; d <= sqrtn; d += 2)
+    if (n%d == 0) return false;         // n has a nontrivial divisor
+  return true;                          // n has no nontrivial divisors
+}
+/*
+OUPUT: 
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79
+
+It should be noted that this function is not optimal. In searching for divisors, we need only check prime
+numbers, because every composite (non-prime) number is a unique product of primes. 
+
+To modify this function so that it checks only prime divisors requires that the primes be stored as they are found
+(so that every composite [non-prime] number is not used to recalculate every sequential number). 
+That requires using an array.
+
+*/

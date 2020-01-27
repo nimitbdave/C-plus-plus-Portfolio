@@ -1,0 +1,50 @@
+/* 
+The following program classifies the 128 ASCII characters
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void printCharCategory(char c);
+// prints the category to which the given character belongs;
+
+int main()
+{ // tests the printCharCategory() function:
+  for (int c=0; c < 128; c++)
+  printCharCategory(c);
+}
+
+void printCharCategory(char c)
+{ // prints the category to which the given character belongs:
+  cout << "The character [" << c << "] is a ";
+  
+  if      (isdigit(c)) cout << "digit.\n";
+  else if (islower(c)) cout << "lower-case letter.\n";
+  else if (isupper(c)) cout << "capital letter.\n";
+  else if (isspace(c)) cout << "white space character.\n";
+  else if (iscntrl(c)) cout << "control character.\n";
+  else if (ispunct(c)) cout << "punctuation mark.\n";
+  else                 cout << "Error.\n";
+  
+}
+
+/*
+OUPUT: 
+
+Here is part of the output:
+The complete output contains 128 lines.
+
+The character [] is a control character.
+The character [ ] is a white space character.
+The character [!] is a punctuation mark.
+The character ["] is a punctuation mark.
+The character [#] is a punctuation mark.
+The character [$] is a punctuation mark.
+*/

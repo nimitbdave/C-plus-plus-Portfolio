@@ -1,0 +1,60 @@
+/* 
+f() and g() are global functions, and the first x is a global variable. So their scope
+includes the entire file. This is called file scope. The second x is declared inside main() so it has local
+scope; i.e., it is accessible only from within main(). The third x is declared inside an internal block, so
+its scope is restricted to that internal block. Each x scope overrides the scope of the previously declared
+x, so there is no ambiguity when the identifier x is referenced. 
+
+The scope resolution operator :: is used
+to access the last x whose scope was overridden; in this case, the global x whose value is 11:
+*/
+
+
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void f();     // f() is global
+void g();     // g() is global
+int x = 11;   // this x is global
+
+int main()
+{ int x = 22;
+  { int x = 33;
+    cout << "In block inside main(): x = " << x << endl;
+  }                                                               // end scope of internal block
+  cout << "In main(): x = " << x << endl;
+  cout << "In main(): ::x = " << ::x << endl;                     // accesses global x
+  f();
+  g();
+}                                                                 // end scope of main()
+
+void f()
+{ int x = 44;
+  cout << "In f(): x = " << x << endl;
+}                                                                 // end scope of f()
+
+void g()
+{ cout << "In g(): x = " << x << endl;
+}                                                                 // end scope of g()
+
+/*
+OUPUT: 
+In block inside main(): x = 33
+In main(): x = 22
+In main(): ::x = 11
+In f(): x = 44
+In g(): x = 11
+
+The x initialized with 44 has scope limited to the function f() which is parallel to main(); but its
+scope is also nested within the global scope of the first x, so its scope overrides that of both the first x
+within f(). In this example, the only place where the scope of the first x is not overridden is within the
+function g().
+*/

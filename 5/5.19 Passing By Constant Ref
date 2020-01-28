@@ -1,0 +1,55 @@
+/* 
+The function changes the formal parameters x and y, but it would not be able to change z. The
+function’s change of x has no effect upon the argument a because it was passed by value. The function’s
+change of y causes the same change on the argument b because it was passed by reference.
+Passing parameters by constant reference is used mostly in functions that process large
+objects, such as arrays and class instances. Objects of fundamental
+types (integers, floats, etc.) are usually passed either by value (if you don’t want the function
+to change them) or by reference (if you do want the function to change them).
+
+This illustrates the three ways to pass a parameter to a function:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+
+void f(int,int&,con st int&);
+
+int main()
+{ // tests the f() function:
+  
+  int a = 22,b = 33, c = 44;
+  cout << "a = " << a << ", b = " << b << ", c = " << c << endl;
+  
+  f(a,b,c);
+  cout << "a = " << a << ", b = " << b << ", c = " << c << endl;
+  
+  f(2*a-3,b,c);
+  cout << "a = " << a << ", b = " << b << ", c = " << c << endl;
+}
+
+void f(int x, int& y, const int& z)
+{ x += z;
+  y += z;
+  cout << "x = " << x << ", y = " << y << ", z = " << z << endl;
+}
+
+/*
+OUPUT: 
+a = 22, b = 33, c = 44
+x = 66, y = 77, z = 44
+a = 22, b = 77, c = 44
+x = 85, y = 121,  z = 44
+a = 22, b = 121,  c = 44
+
+
+
+*/

@@ -1,0 +1,33 @@
+/* 
+If the user enters 0 for x, the program will terminate from within the reciprocal() function
+without attempting to divide by it.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+double reciprocal(double x);
+
+int main()
+{ double x;
+  cin >> x;
+  cout << reciprocal(x);
+}
+
+double reciprocal(double x)
+{ // returns the reciprocal of x:
+  if (x == 0) exit(1); // terminate the program
+  return 1.0/x;
+}
+
+/*
+OUPUT: 
+
+*/

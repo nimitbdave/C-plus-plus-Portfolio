@@ -1,0 +1,45 @@
+/* 
+This example shows the difference between passing by value and passing by reference:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void f(int,int&);
+// changes reference argument to 99:;
+
+int main()
+{ // tests the f() function:
+  int a = 22,b = 44;
+  cout << "a = " << a << ", b = " << b << endl;
+  f(a,b);
+  cout << "a = " << a << ", b = " << b << endl;
+  f(2*a-3,b);
+  cout << "a = " << a << ", b = " << b << endl;
+}
+
+void f(int x,int& y)
+{ // changes reference argument to 99:
+  x = 88;
+  y = 99;
+}
+
+/*
+OUPUT: 
+a = 22, b = 44
+a = 22, b = 99
+a = 22, b = 99
+
+The call f(a,b) passes a by value to x and it passes b by reference to y. So x is a local variable that
+is assigned a’s value of 22, while y is an alias for the variable b whose value is 33. The function assigns
+88 to x, but that has no effect on a. But when it assigns 99 to y, it is really assigning 99 to b, because y is
+an alias for b. So when the function terminates, a still has its original value 22, while b has the new value
+99. The argument a is read-only, while the argument b is read-write.
+*/

@@ -1,0 +1,41 @@
+/* 
+In any function, the return statement will terminate the current function and return control to
+the invoking function. That’s why a return statement in main() terminates the program.
+There are actually four ways to terminate a program abnormally (i.e., before execution reaches
+the end of the main block):
+1. use a return statement in main();
+2. call the exit() function;
+3. call the abort() function;
+4. throw an uncaught exception.
+
+The exit() function is defined in the <cstdlib> header. It is useful for terminating a
+program from within a function other than main().
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // prints the quotient of two input integers:
+  int n,d;
+  cout << "Enter two integers: ";
+  cin >> n >> d;
+  if (d == 0) return 0;
+  cout << n << "/" << d << " = " << n/d << endl;
+}
+
+/*
+OUPUT: 
+Enter two integers: 99 17
+99/17 = 5
+
+If the user inputs 0 for d, the program will terminate without output:
+Enter two integers: 99 0
+*/

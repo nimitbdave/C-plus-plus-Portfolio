@@ -4,6 +4,14 @@ This little function is widely used in sorting data.
 Its sole purpose is to interchange the two objects that are passed to it. This is accomplished by declaring
 the formal parameters x and y as reference variables: float& x,float& y. The reference operator
 & makes x and y synonyms for the arguments passed to the function.
+
+When the call swap(a,b) executes, the function creates its local references x and y, so that x is the
+function’s local name for a, and y is the function’s local name for b. Then the function’s three statements
+execute: the local variable temp is declared and initialized with the value of x (which is a); then x (which
+is a) is assigned the value of y (which is b); then y (which is b) is assigned the value of temp. So a ends
+up with the value 44.4, and b ends up with the value 22.2.
+
+
 */
 
 #include <cctype> // defines the functions isdigit(), islower(), etc.
@@ -38,4 +46,13 @@ void swap(float& x,f loat& y)
 OUPUT: 
 a = 22.2,b = 44.4
 a = 44.4,b = 22.2
+
+Note that the function declaration
+void swap(float&, float&);
+includes the reference operator & for each reference parameter, even though the parameters are omitted.
+Some programmers write the reference operator & as a prefix to the parameter, like this:
+void swap(float &x, float &y)
+instead of as a suffix to its type as done here. That style is more common among C programmers. In C++,
+we think of x as the parameter and float& as its type. But the compiler will accept float& x,
+float &x, float & x, or even float&x. It’s mostly a matter of taste.
 */

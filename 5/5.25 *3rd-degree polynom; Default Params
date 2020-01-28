@@ -1,0 +1,46 @@
+/* 
+This function evaluates the third degree polynomial a0 + a1x + a2x2 + a3x3. The actual evaluation is
+done using Horner’s Algorithm, grouping the calculations as a0 + (a1 + (a2 + a3x)x)x for greater efficiency:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+double p(double, double, double=0, double=0, double=0);
+
+int main()
+{ // tests the p() function:
+  double x = 2.0003;
+  cout << "p(x,7) = " << p(x,7) << endl;
+  cout << "p(x,7,6) = " << p(x,7,6) << endl;
+  cout << "p(x,7,6,5) = " << p(x,7,6,5) << endl;
+  cout << "p(x,7,6,5,4) = " << p(x,7,6,5,4) << endl;
+}
+
+double p(double x, double a0, double a1, double a2, double a3)
+{ // returns a0 + a1*x + a2*x^2 + a3*x^3:
+  return a0 + (a1 + (a2 + a3*x)*x)*x;
+}
+
+/*
+OUPUT: 
+p(x,7) = 7
+p(x,7,6) = 19.0018
+p(x,7,6,5) = 39.0078
+p(x,7,6,5,4) = 71.0222
+
+The call p(x,a0,a1,a2,a3) evaluates the third-degree polynomial a0 + a1x + a2x2 + a3x3. But
+since a1, a2, and a3 all have the default value 0, the function can also be called by p(x,a0) to
+evaluate the constant polynomial a0, or by p(x,a0,a1) to evaluate the first-degree polynomial a0 +
+a1x, or by p(x,a0,a1,a2) to evaluate the second-degree polynomial a0 + a1x + a2x2.
+Note how the default values of 0 are given in the function prototype. For example, the call
+p(x,7,6,5), which is equivalent to the call p(x,7,6,5,0), evaluates the second degree polynomial
+7 + 6 x + 5 x2.
+*/

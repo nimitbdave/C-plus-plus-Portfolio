@@ -1,0 +1,67 @@
+/* 
+Here is a simple function that prompts the user for his/her age and then returns it. It is “robust” in the
+sense that it rejects any unreasonable integer input. It repeatedly requests input until it receives an integer
+in the range 0 to 120.
+
+As soon as the input received from cin is acceptable, the function terminates with a return
+statement, sending the input back to the calling function. If the input is not acceptable (either n < 0or
+n > 120), then the system beep is sounded by printing the character '\a' and a comment printed.
+Then the user is asked to “Try again.”
+
+Note that this is an example of a function whose return statement is not at the end of the function.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+
+int age();
+// prompts the user to input his/her age,and returns that value;
+
+int main()
+{ // tests the age() function:
+  int a = age();          //Notice that the function’s parameter list is empty. But even though it has no input parameters, the
+                          //parentheses () must be included both in the function’s header and in every call to the function.
+  cout << "\nYou are " << a << " years old.\n";
+}
+
+int age()
+{ // prompts the user to input his/her age, and returns that value:
+  int n;
+  
+  while (true)
+  { cout << "How old are you: ";
+    
+    cin >> n;                                             //Input
+    
+    if (n < 0) 
+      cout << "\a\tYour age could not be negative.";
+    else if 
+      (n > 120) cout << "\a\tYou could not be over 120.";
+    else 
+      return n;
+      
+    cout << "\n\tTry again.\n";
+  }
+}
+
+/*
+OUPUT: 
+How old are you: 125
+            You could not be over 120.
+            Try again.
+How old are you: -3
+            Your age could not be negative.
+            Try again.
+How old are you: 99
+
+You are 99 years old.
+
+*/

@@ -1,0 +1,41 @@
+/* 
+This little function is widely used in sorting data.
+
+Its sole purpose is to interchange the two objects that are passed to it. This is accomplished by declaring
+the formal parameters x and y as reference variables: float& x,float& y. The reference operator
+& makes x and y synonyms for the arguments passed to the function.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void swap(float&,floa t&);
+// exchanges the values of x and y;
+
+int main()
+{ // tests the swap() function:
+  float a = 22.2,b = 44.4;
+  cout << "a = " << a << ", b = " << b << endl;
+  swap(a,b);
+  cout << "a = " << a << ", b = " << b << endl;
+}
+
+void swap(float& x,f loat& y)
+{ // exchanges the values of x and y:
+  float temp = x;
+  x = y;
+  y = temp;
+}
+
+/*
+OUPUT: 
+a = 22.2,b = 44.4
+a = 44.4,b = 22.2
+*/

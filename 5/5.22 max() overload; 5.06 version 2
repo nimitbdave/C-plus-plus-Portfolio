@@ -1,0 +1,43 @@
+/* 
+Three different functions, all named max, are defined here. The compiler checks their parameter lists to
+determine which one to use on each call. For example, the first call passes two ints, so the version that
+has two ints in its parameter list is called. (If that version had been omitted, then the system would
+promote the two ints 99 and 77 to the doubles 99.0 and 77.0 and then pass them to the version that has two
+doubles in its parameter list.)
+
+5.06 defined a max() function for two integers. Here we define two other max()
+functions in the same program:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int max(int, int);
+int max(int, int, int) ;
+
+int main()
+{ cout << max(99,77) << " " << max(55,66,33);
+}
+
+int max(int x, int y)
+{ // returns the maximum of the two given integers:
+  return (x > y ? x : y);
+}
+
+int max(int x, int y, int z)
+{ // returns the maximum of the three given integers:
+  int m = (x > y ? x : y);  // m = max(x,y)
+  return (z > m ? z : m);
+}
+
+/*
+OUPUT: 
+99 66
+*/

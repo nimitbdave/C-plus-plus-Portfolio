@@ -1,0 +1,45 @@
+/* 
+This function returns two values by using two reference parameters: the area and circumference
+of a circle whose radius has the given length r:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void computeCircle(double&, double&, double);
+// returns the area and circumference of a circle with radius r;
+
+int main()
+{ // tests the computeCircle() function:
+  double r, a, c;
+  cout << "Enter radius: ";
+  cin >> r;
+  computeCircle(a, c, r);
+  cout << "area = " << a << ", circumference = " << c << endl;
+}
+
+void computeCircle(double& area, double& circumference, double r)
+{ // returns the area and circumference of a circle with radius r:
+  const double PI = 3.141592653589793;
+  area = PI*r*r;
+  circumference = 2*PI*r;
+}
+
+/*
+OUPUT: 
+Enter radius: 100
+area = 31415.9,circumference = 628.319
+
+Note that the output parameters area and circumference are listed first in the parameter list, to the
+left of the input parameter r. This standard C style is consistent with the format of assignment statements:
+y = x,
+where the information (the value) flows from the read-only variable x on the right to the
+read-write variable y on the left.
+*/

@@ -1,0 +1,67 @@
+/* 
+This is the same cube() function as in 5.03.
+
+The only difference is that the inline keyword has been added as a prefix to the function’s head. This
+tells the compiler to replace the expression cube(n) in the main program with the actual code
+(n)*(n)*(n). So this test program
+
+  int main()
+  { // tests the cube() function:
+    cout << cube(4) << endl;
+    int x,y;
+    cin >> x;
+    y = cube(2*x-3);
+  }
+  
+will actually be compiled as though it were this program:
+
+  int main()
+  { // tests the cube() function:
+    cout << (4)*(4)*(4) << endl;
+    int x,y;
+    cin >> x;
+    y = (2*X+3)*(2*X+3)*(2*X+3);
+  }
+  
+  
+When the compiler replaces the inline function call with the function’s actual code, we say
+that it expands the inline function.
+
+The C++ Standard does not actually require the compiler to expand inline functions. It only
+“advises” the compiler to do so. A compiler that doesn’t follow this “advice” could still be
+validated as a Standard C++ compiler. On the other hand, some Standard C++ compilers may
+expand some simple functions even if they are not declared to be inline.
+
+WARNING: use of inlined function can cause negative side effects. For example, inlining a
+40-line function that is called in 26 different locations would add at least 1000 lines of unnoticed
+source code to your program. Inlined functions can also limit the portability of your code across
+platforms.  
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // defines the rand() function and RAND_MAX const
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+inline int cube(int x)
+{ // returns cube of x:
+  return x*x*x;
+}
+
+int main()
+{ // tests the cube() function:
+  cout << cube(4) << endl;
+  int x,y;
+  cin >> x;
+  y = cube(2*x-3);
+}
+
+/*
+OUPUT: 
+
+*/

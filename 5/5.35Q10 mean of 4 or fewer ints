@@ -1,0 +1,45 @@
+/* 
+This tests a function that returns the average of four or fewer numbers:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+double ave(double, double=0, double=0, double=0);
+
+double main()
+{ cout << "Enter four non-zero numbers: ";
+  double w,x,y,z;
+  cin >> w >> x >> y >> z;
+  cout << "The average of the first one is "    << ave(w) << endl;
+  cout << "The average of the first two is "    << ave(w,x) << endl;
+  cout << "The average of the first three is "  << ave(w,x,y)<<endl;
+  cout << "The average of all four is "         << ave(w,x,y,z) << endl;
+}
+
+double ave(double x1, double x2, double x3, double x4)
+{ double sum = x1 + x2 + x3 + x4;
+  if (x2 == 0) return sum;
+  if (x3 == 0) return sum/2.0;
+  if (x4 == 0) return sum/3.0;
+  return sum/4.0;
+}
+
+
+
+/*
+OUPUT: 
+Enter four non-zero numbers: 44 88 22 66
+The average of the first one is 44
+The average of the first two is 66
+The average of the first three is 51.3333
+The average of all four is 55
+
+*/

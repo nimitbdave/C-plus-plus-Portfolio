@@ -1,0 +1,45 @@
+/* 
+This tests a boolean function that tests integers for squares:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int isSquare(int);
+int main()
+{ const int MAX=20;
+  for (int i=0; i<MAX; i++)
+    if (isSquare(i)) cout << i << " is square.\n";
+    else cout << i << " is not square.\n";
+}
+int isSquare(int n)
+{ int i=0;
+  while (i*i<n)
+    ++i;
+  if (i*i == n) return true;
+  else return false;
+}
+
+
+/*
+OUPUT: 
+0 is square.
+1 is square.
+2 is not square.
+3 is not square.
+4 is square.
+5 is not square.
+6 is not square.
+7 is not square.
+8 is not square.
+9 is square.
+10 is not square.
+11 is not square.
+*/

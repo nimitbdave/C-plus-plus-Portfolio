@@ -1,0 +1,42 @@
+/* 
+This tests a function that returns the maximum of three integers:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int max(int,int,int);
+
+int main()
+{ cout << "Enter three integers: ";
+  int x,y,z;
+  cin >> x >> y >> z;
+  cout << "Their maximum is " << max(x,y,z) << endl;
+}
+
+int max(int,int);
+
+int max(int x,int y, int z)
+{ int max(int,int);
+  return max(max(x,y),z);
+}
+
+int max(int x,int y)
+{ // returns the maximum of the two given integers:
+  if (x < y) return y;
+  else return x;
+}
+
+
+/*
+OUPUT: 
+Enter three integers: 44 88 66
+Their maximum is 88
+*/

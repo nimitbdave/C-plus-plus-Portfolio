@@ -1,0 +1,44 @@
+/* 
+This tests a boolean function that tests integers for triangularity:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int isTriangular(int);
+int main()
+{ const int MAX=12;
+  for (int i=0; i<MAX; i++)
+    if (isTriangular(i)) cout << i << " is triangular.\n";
+    else cout << i << " is not triangular.\n";
+}
+int isTriangular(int n)
+{ int x=0,y=0,dy=1;
+  while (y < n)
+    y += dy++;
+  if (y == n) return true;
+  else return false;
+}
+
+/*
+OUPUT: 
+0 is triangular.
+1 is triangular.
+2 is not triangular.
+3 is triangular.
+4 is not triangular.
+5 is not triangular.
+6 is triangular.
+7 is not triangular.
+8 is not triangular.
+9 is not triangular.
+10 is triangular.
+11 is not triangular.
+*/

@@ -1,0 +1,35 @@
+/* 
+This program reads five numbers and then prints them in reverse order.
+
+The first line defines the symbolic constant SIZE to be 5 elements. The second line declares a to be an
+array of 5 elements of type double. Then the first for loop reads 5 values into the array, and the second
+for loop prints them in reverse order.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ const int SIZE=5;     // defines the size N for 5 elements
+  double a[SIZE];       // declares the array’s elements as type double
+  cout << "Enter " << SIZE << " numbers:\t";
+  for (int i=0; i<SIZE; i++)
+    cin >> a[i];
+  cout << "In reverse order: ";
+  for (int i=SIZE-1; i>=0; i--)
+    cout << "\t" << a[i];
+}
+
+/*
+OUPUT: 
+
+Enter 5 numbers: 11.11 33.33 55.55 77.77 99.99
+In reverse order: 99.99 77.77 55.55 33.33 11.11
+*/

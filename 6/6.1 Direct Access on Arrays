@@ -1,0 +1,35 @@
+/* 
+The first line declares a to be an array of 3 elements of type double. The next three lines assign values
+to those elements.
+
+Arrays are usually processed with for loops.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ double a[3];
+  a[2] = 55.55;
+  a[0] = 11.11;
+  a[1] = 33.33;
+  cout << "a[0] = " << a[0] << endl;
+  cout << "a[1] = " << a[1] << endl;
+  cout << "a[2] = " << a[2] << endl;
+}
+
+/*
+OUPUT: 
+a[0] = 11.11
+a[1] = 33.33
+a[2] = 55.55
+
+
+*/

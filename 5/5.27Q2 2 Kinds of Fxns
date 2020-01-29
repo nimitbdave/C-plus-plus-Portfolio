@@ -1,0 +1,27 @@
+/* 
+Describes how a void function with one reference parameter can be converted into an
+equivalent non-void function with one value parameter.
+
+Convert the reference parameter into a return value.
+*/
+
+
+void f(int& n)
+{ n *= 2;
+}
+
+
+is equivalent to the function
+
+
+int g(int n)
+{ return 2*n;
+}
+
+The two functions are invoked differently:
+
+int x=22,y=44;
+f(x); // double the value of x
+y = g(y); // double the value of y
+
+But in both cases, the effect is to double the value of the parameter.

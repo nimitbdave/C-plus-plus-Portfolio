@@ -1,0 +1,35 @@
+/* 
+This tests a function that has reference parameters:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void computeCircle(double& area, double& circ, double r);
+int main()
+{ double a,c,r;
+  cout << "Enter the radius: ";
+  cin >> r;
+  computeCircle(a,c,r);
+  cout << "The area of a circle of radius " << r << " is " << a
+       << "\nand its circumference is " << c << endl;
+}
+void computeCircle(double& area,double& circ,double r)
+{ const double PI=3.141592653589793;
+  area = PI*r*r;
+  circ = 2*PI*r;
+}
+
+/*
+OUPUT: 
+Enter the radius: 10
+The area of a circle of radius 10 is 314.159
+and its circumference is 62.8319
+*/

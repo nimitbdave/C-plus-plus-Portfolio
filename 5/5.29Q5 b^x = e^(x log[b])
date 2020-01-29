@@ -1,0 +1,40 @@
+/* 
+
+A simple program like the one in 5.02 to check the trigonometry of 
+b^x = e^(x log[b]).
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ double b=2;
+  double lg2=log(2);                                    //log[b]
+  for (double x=0; x < 2; x += 0.2)
+    cout << pow(b,x) << "\t" << exp(x*lg2) << endl;     // e^(x log[b])
+}
+
+/*
+OUPUT: 
+1         1
+1.1487    1.1487
+1.31951   1.31951
+1.51572   1.51572
+1.7411    1.7411
+2         2
+2.2974    2.2974
+2.63902   2.63902
+3.03143   3.03143
+3.4822    3.4822
+4         4
+
+The equal values show that the identity is true for the 10 values of x tested.
+*/

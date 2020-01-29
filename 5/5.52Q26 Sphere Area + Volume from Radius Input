@@ -1,0 +1,35 @@
+/* 
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void computeSphere(double& a,double& v,double r);
+int main()
+{ double a,v,r;
+  cout << "Enter the radius: ";
+  cin >> r;
+  computeSphere(a,v,r);
+  cout << "The area of a sphere of radius " << r << " is " << a
+       << "\nand its volume is " << v << endl;
+}
+void computeSphere(double& a,double& v,double r)
+{ const double PI=3.141592653589793;
+  a = 4.0*PI*r*r;
+  v = a*r/3.0;
+}
+
+/*
+OUPUT: 
+Enter the radius: 10
+The area of a sphere of radius 10 is 1256.64
+and its volume is 4188.79
+*/

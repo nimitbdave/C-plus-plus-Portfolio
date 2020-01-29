@@ -1,5 +1,5 @@
 /* 
-
+This program initializes the array a and then prints its values:
 */
 
 #include <cctype> // defines the functions isdigit(), islower(), etc.

@@ -1,0 +1,40 @@
+/* 
+This tests the least common multiple function:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+long lcm(long,long);
+int main()
+{ int m,n;
+  cout << "Enter two positive integers: ";
+  cin >> m >> n;
+  cout << "lcm(" << m << "," << n << ") = " << lcm(m,n) << endl;
+}
+long gcd(long,long);
+long lcm(long m,long n)
+{ return m*n/gcd(m,n);
+}
+long gcd(long m,long n)
+{ if (m < n) swap(m,n);
+  while (n>0)
+  { int r = m%n;
+    m = n;
+    n = r;
+  }
+  return m;
+}
+
+/*
+OUPUT: 
+Enter two positive integers: 144 192
+lcm(144,192) = 576
+*/

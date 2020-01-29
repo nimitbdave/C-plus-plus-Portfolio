@@ -1,0 +1,48 @@
+/* 
+This tests a boolean function that tests integers for pentangularity:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int isPentagonal(int);
+int main()
+{ const int MAX=40;
+  for (int i=0; i<MAX; i++)
+    if (isPentagonal(i)) cout << i << " is pentagonal.\n";
+    else cout << i << " is not pentagonal.\n";
+}
+int isPentagonal(int n)
+{ int x=0,y=0,dy=1;
+  while (y < n)
+  { y += dy;
+    dy += 3;
+  }
+  if (y == n) return true;
+  else return false;
+}
+
+/*
+OUPUT: 
+0 is pentagonal.
+1 is pentagonal.
+2 is not pentagonal.
+3 is not pentagonal.
+4 is not pentagonal.
+5 is pentagonal.
+6 is not pentagonal.
+7 is not pentagonal.
+8 is not pentagonal.
+9 is not pentagonal.
+10 is not pentagonal.
+11 is not pentagonal.
+12 is pentagonal.
+13 is not pentagonal.
+*/

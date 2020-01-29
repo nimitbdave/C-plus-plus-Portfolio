@@ -1,0 +1,38 @@
+/* 
+This tests the power function:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+double pow(double,int);
+int main()
+{ cout << "Enter a positive float x and an integer n: ";
+  double x;
+  int n;
+  cin >> x >> n;
+  cout << "pow(" << x << "," << n << ") = " << pow(x,n) << endl;
+}
+double pow(double x,i nt n)
+{ if (x == 0) return 0;
+  if (n == 0) return 1;
+  double y=1;
+  for (int i=0; i < n; i++)
+    y *= x;
+  for (int i=0; i > n; i--)
+    y /= x;
+  return y;
+}
+
+/*
+OUPUT: 
+Enter a positive float x and an integer n: 2.0 -3
+pow(2,-3) = 0.125
+*/

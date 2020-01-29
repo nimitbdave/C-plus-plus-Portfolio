@@ -1,0 +1,37 @@
+/* 
+A simple program like the one in 5.02 to check the trigonometry of 
+cos2x = 2 cos2x – 1.
+
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ for (float x=0; x < 1; x += 0.1)
+  cout << cos(2*x) << '\t' << 2*cos(x)*cos(x) - 1 << endl;                    //cos2x = 2 cos2x – 1.
+}
+
+/*
+OUPUT: 
+1     1
+0.980067   0.980067
+0.921061   0.921061
+0.825336   0.825336
+0.696707   0.696707
+0.540302   0.540302
+0.362358   0.362358
+0.169967   0.169967
+-0.0291997   -0.0291997
+-0.227202    -0.227202
+
+The equal values show that the identity is true for the 10 values of x tested.
+*/

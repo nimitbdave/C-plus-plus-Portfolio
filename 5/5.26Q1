@@ -63,5 +63,10 @@ bool isLeapYear(int y)
 
 /*
 OUPUT: 
-
+2000
+2000 is a leap year.
+2001
+2001 is not a leap year.
+0
+0 is a leap year.
 */

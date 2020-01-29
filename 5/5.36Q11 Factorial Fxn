@@ -1,0 +1,51 @@
+/* 
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+long fact(int n);
+int main()
+{ for (int i=-1; i<20; i++)
+  cout << "fact(" << i << ") = " << fact(i) << endl;
+}
+long fact(int n)
+{ if (n < 2) return 1;
+  long f=1;
+  for (int i=2; i <= n; i++)
+    f *= i;
+  return f;
+}
+
+/*
+OUPUT: 
+fact(-1) = 1
+fact(0) = 1
+fact(1) = 1
+fact(2) = 2
+fact(3) = 6
+fact(4) = 24
+fact(5) = 120
+fact(6) = 720
+fact(7) = 5040
+fact(8) = 40320
+fact(9) = 362880
+fact(10) = 3628800
+fact(11) = 39916800
+fact(12) = 479001600
+fact(13) = 1932053504
+fact(14) = 1278945280
+fact(15) = 2004310016
+fact(16) = 2004189184
+fact(17) = -288522240
+fact(18) = -898433024
+fact(19) = 109641728
+*/

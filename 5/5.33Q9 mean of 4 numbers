@@ -1,0 +1,32 @@
+/* 
+This tests a function that returns the average of four numbers:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+double ave(double,double,double,double);
+
+double main()
+{ cout << "Enter four numbers: ";
+  double w,x,y,z;
+  cin >> w >> x >> y >> z;
+  cout << "Their average is " << ave(w,x,y,z) << endl;
+}
+
+double ave(double x1, double x2,double x3,double x4)
+{ return (x1 + x2 + x3 + x4)/4.0;                           //average calculation
+}
+
+/*
+OUPUT: 
+Enter four numbers: 44 88 22 66
+Their average is 55
+*/

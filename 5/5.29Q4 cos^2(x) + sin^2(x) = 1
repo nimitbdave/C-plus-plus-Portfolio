@@ -1,0 +1,39 @@
+/* 
+A simple program like the one in 5.02 to check the trigonometry of 
+cos^2(x) + sin^2(x) = 1.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ for (double x=0; x < 2; x += 0.2)
+  { double s=sin(x);
+    double c=cos(x);
+    cout << s*s << "\t" << c*c << "\t" << s*s+c*c << endl;
+  }
+}
+
+/*
+OUPUT: 
+0         1           1
+0.0394695 0.96053     1
+0.151647  0.848353    1
+0.318821  0.681179    1
+0.5146    0.4854      1
+0.708073  0.291927    1
+0.868697  0.131303    1
+0.971111  0.0288888   1
+0.999147  0.000852612 1
+0.948379  0.0516208   1
+0.826822  0.173178    1
+
+The equal values show that the identity is true for the 10 values tested.
+*/

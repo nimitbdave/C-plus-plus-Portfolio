@@ -1,0 +1,44 @@
+/* 
+This tests a function that extracts a digit from an integer:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int digit(long,int);
+int main()
+{ int n,k;
+  
+  cout << "Integer: ";
+  cin >> n;
+  
+  do
+  { cout << "Digit: ";
+    cin >> k;
+    cout << "Digit number " << k << " of " << n
+         << " is " << digit(n,k) << endl;
+  } while (k > 0);
+}
+int digit(long n, int k)
+{ for (int i = 0; i < k; i++)
+    n /= 10; // remove right-most digit
+  return n % 10;
+}
+
+/*
+OUPUT: 
+Integer: 876543210
+Digit: 4
+Digit number 4 of 876543210 is 4
+Digit: 7
+Digit number 7 of 876543210 is 7
+Digit: 0
+Digit number 0 of 876543210 is 0
+*/

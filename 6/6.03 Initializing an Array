@@ -1,0 +1,34 @@
+/* 
+
+This program initializes the array a and then prints its values.
+
+The first line declares a to be the array of 3 elements described above. The second line uses the
+sizeof() function to compute the actual number of elements in the array. The value of
+sizeof(float) is 4 because on this machine a float value occupies 4 bytes in memory. The value of
+sizeof(a) is 12 because the complete array occupies 12 bytes in memory. Therefore, the value of
+size is computed to be 12/4 = 3.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ float a[] = { 22.2, 44.4, 66.6 };
+  int size = sizeof(a)/sizeof(float);
+  for (int i=0; i<size; i++)
+    cout << "\ta[" << i << "] = " << a[i] << endl;
+}
+
+/*
+OUPUT: 
+a[0] = 22.2
+a[1] = 44.4
+a[2] = 66.6
+*/

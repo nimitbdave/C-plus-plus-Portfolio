@@ -1,0 +1,50 @@
+/* 
+This program inadvertently changes the value of a variable when it accesses a nonexistent element of
+an array.
+
+This is the worst kind of run-time error. It changes the value of a variable which is completely independent
+and not even mentioned in the code where the change occurs. This kind of error is called a side effect.
+It can have disastrous consequences because it may not be detected.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ const int SIZE=4;
+  float a[] = { 22.2,44.4, 66.6 };
+  float x=11.1;
+  cout << "x = " << x << endl;
+  a[3] = 88.8; // ERROR: index is out of bounds!
+  cout << "x = " << x << endl;
+}
+
+
+/*
+OUPUT: 
+x = 11.1
+x = 88.8
+
+The variable x is declared after the array a, so the system allocates
+a 4-byte block of memory to x that immediately follows the 12 bytes
+of memory that it allocates to the 3 elements of a. Consequently, the
+16 contiguous bytes of memory that a and x occupy are configured as
+though x were a[3]. So when the program assigns 88.8 to a[3]
+(which does not exist), it actually changes the value of x to 88.8.
+
+the four bytes used to store 88.8 immediately follow
+the four bytes used to store 66.6.
+
+This is the worst kind of run-time error. It changes the value of a variable which is completely independent
+and not even mentioned in the code where the change occurs. This kind of error is called a side effect.
+It can have disastrous consequences because it may not be detected.
+
+It is the C++ programmer’s responsibility to ensure that array index values are kept in range.
+*/

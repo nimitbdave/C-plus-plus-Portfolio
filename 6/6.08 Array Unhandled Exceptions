@@ -1,0 +1,48 @@
+/* 
+shows that a different kind of run-time error can occur if an array index is
+allowed to get too big.
+
+This program crashes because the array index gets too big:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ const int SIZE=4;
+  float a[] = { 22.2,44.4, 66.6 };
+  float x=11.1;
+  cout << "x = " << x << endl;
+  a[3333] = 88.8;                     // ERROR: index is out of bounds!
+  cout << "x = " << x << endl;
+}
+
+/*
+OUPUT: 
+When run on a Windows workstation, this program generates
+the alert panel.
+
+This little window is reporting that the
+program attempted to access memory location 0040108e. That
+location is outside the segment of memory that was allocated to
+the process that is running the program. So the Windows operating
+system aborted the program.
+
+The run-time error that occurred is called an unhandled exception because
+there is no code in the program to respond to the error. It is possible to include code in C++ programs
+so that the program won’t crash. Such code is called an exception handler.
+
+Unlike some other programming languages (e.g., Pascal and Java), the Standard C++ compiler
+will not allow arrays to be assigned and it will not restrict array indexes from exceeding their
+bounds. It is the programmer’s responsibility to prevent these compile-time and run-time errors.
+The reward for this extra responsibility is faster, more efficient code. If those benefits are not
+important to your application, then you should use Standard C++ vector objects instead of
+arrays.  (See File 10.)
+*/

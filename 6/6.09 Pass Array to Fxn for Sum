@@ -1,0 +1,42 @@
+/* 
+The code float a[] that declares an array a in the previous examples tells the compiler two
+things: the name of the array is a, and the array’s elements have type float. The symbol a stores
+the array’s memory address. So the code float a[] provides all the information that the
+compiler needs to declare the array. The size of the array (i.e., the number of elements in the
+array) does not need to be conveyed to the compiler. C++ requires the same information to be
+passed to a function that uses an array as a parameter.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int sum(int[],int);
+int main()
+{ int a[] = { 11,33, 55,77 };
+  int size = sizeof(a)/sizeof(int);
+  cout << "sum(a,size) = " << sum(a,size) << endl;
+}
+int sum(int a[],int n)
+{ int sum=0;
+  for (int i=0; i<n; i++)
+    sum += a[i];
+  return sum;
+}
+
+/*
+OUPUT: 
+sum(a,size) = 176
+
+The function’s parameter list is (int a[], int n). The function prototype, which is used to
+declare the function above main(), uses (int[],int); this is the same as in the prototype except that
+the names of the parameters are omitted. (They can be included.) The function call, which occurs inside
+main(), uses sum(a,size); this lists the names of the parameters without their types. Note that the
+actual name of the type for the object a is int[].
+*/

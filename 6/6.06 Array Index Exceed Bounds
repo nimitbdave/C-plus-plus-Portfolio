@@ -1,0 +1,36 @@
+/* 
+This program has a run-time error: it accesses a part of memory that is not allocated:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ const int SIZE=4;
+  float a[SIZE] = { 33.3, 44.4,55.5,66.6 };
+  for (int i=0; i<7; i++)                           // ERROR: index is out of bounds!
+    cout << "\ta[" << i << "] = " << a[i] << endl;
+}
+
+/*
+OUPUT: 
+a[0] = 33.3
+a[1] = 44.4
+a[2] = 55.5
+a[3] = 66.6
+a[4] = 5.60519e-45
+a[5] = 6.01888e-39
+a[6] = 6.01889e-39
+
+The last three values printed are garbage values, left from the previous use of those bytes in memory.
+
+Allowing an array index to exceed its bounds can cause disastrous side effects.  See 6.07.
+
+*/

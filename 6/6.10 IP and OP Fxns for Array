@@ -1,0 +1,52 @@
+/* 
+This program uses a read() function to input values into the array a interactively. Then it uses a
+print() function to print the array:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void read(int[],int&);
+void print(int[],int);
+int main()
+{ const int MAXSIZE=100;
+  int a[MAXSIZE]={0},size;
+  read(a,size);
+  cout << "The array has " << size << " elements: ";
+  print(a,size);
+}
+void read(int a[],in t& n)
+{ cout << "Enter integers. Terminate with 0:\n";
+  n = 0;
+  do
+  { cout << "a[" << n << "]: ";
+    cin >> a[n];
+  } while (a[n++] != 0 && n < MAXSIZE);
+  --n; // don't count the 0
+}
+void print(int a[],i nt n)
+{ for (int i=0; i<n; i++)
+    cout << a[i] << " ";
+}
+
+/*
+OUPUT: 
+Enter integers. Terminate with 0:
+a[0]: 11
+a[1]: 22
+a[2]: 33
+a[3]: 44
+a[4]: 0
+The array has 4 elements: 11 22 33 44
+
+The read() function changes the values of the array a and the value of the size parameter n. Since n
+is a scalar variable, it must be passed by reference to allow the function to change its value. Since a is an
+array variable, it must be passed by value and the function is able to change the values its elements.
+*/

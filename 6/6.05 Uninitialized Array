@@ -1,0 +1,41 @@
+/* 
+This program initializes the array a and then prints its value.
+
+Note that the values in the uninitialized array may or may not be zero; it depends upon how that part of
+memory was used prior to the execution of this program.
+
+Note that an initialization is not the same as an assignment. Arrays can be initialized, but they
+cannot be assigned:
+  float a[7] = { 22.2,4 4.4,66.6 };
+  float b[7] = { 33.3,5 5.5,77.7 };
+  b = a; // ERROR: arrays cannot be assigned!
+Nor can an array be used to initialize another array:
+  float a[7] = { 22.2,4 4.4,66.6 };
+  float b[7] = a; // ERROR: arrays cannot be used as initializers!
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ const int SIZE=4;       // defines the size N for 4 elements
+  float a[SIZE];          // declares the array's elements as type float
+  
+  for (int i=0; i<SIZE; i++)
+    cout << "\t" << "a[" << i << "] = " << a[i] << endl;
+}
+
+/*
+OUPUT: 
+a[0] = 6.01838e-39
+a[1] = 9.36651e-39
+a[2] = 6.00363e-39
+a[3] = 0
+*/

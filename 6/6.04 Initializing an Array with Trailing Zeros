@@ -28,4 +28,15 @@ a[3] = 0
 a[4] = 0
 a[5] = 0
 a[6] = 0
+
+
+Note that the number of values in an array’s initializer list cannot exceed its size:
+  float a[3] = { 22.2, 44.4,66.6,88.8 }; // ERROR: too many values!
+An array can be initialized to be all zeros by using an empty initializer list. So, for example,
+the following three declarations are equivalent:
+  float a[ ] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+  float a[9] = { 0, 0 };
+  float a[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+But note that this is not the same as using no initializer list. Just as with a variable of
+fundamental type, if an array is not initialized it will contain “garbage” values.
 */

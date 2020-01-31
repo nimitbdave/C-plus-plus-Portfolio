@@ -1,0 +1,40 @@
+/* 
+This program tests a function that implements the Bubble Sort algorithm.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void print(float[],int);
+void sort(float[],int);
+int main()
+{ float a[] = {55.5, 22.5,99.9,66.6,44.4,88.8,33.3,77.7};
+  print(a,8);
+  sort(a,8);
+  print(a,8);
+}
+void sort(float a[],int n)
+{ // bubble sort:
+  for (int i=1; i<n; i++)
+    // bubble up max{a[0..n-i]}:
+    for (int j=0; j<n-i; j++)
+      if (a[j] > a[j+1]) swap(a[j],a[j+1]);
+    // INVARIANT: a[n-1-i..n-1] is sorted
+}
+
+/*
+OUPUT: 
+55.5, 22.5, 99.9, 66.6, 44.4, 88.8, 33.3, 77.7
+22.5, 33.3, 44.4, 55.5, 66.6, 77.7, 88.8, 99.9
+
+The sort() function uses two nested loops. The inside for loop compares pairs of adjacent elements
+and swaps them whenever they are out of order. This way, each element “bubbles up” past all the elements
+that are less than it.
+*/

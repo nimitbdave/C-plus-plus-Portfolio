@@ -1,0 +1,35 @@
+/* 
+Computers are probably used more for the storage and retrieval of information than for any
+other purpose. Data is often stored in a sequential structure such as an array. The simplest way to
+find an object in an array is start at the beginning and inspect each element, one after the other,
+until the object is found. This method is called the Linear Search algorithm.
+
+This program tests a function that implements the Linear Search algorithm:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int index(int,int[],int);
+int main()
+{ int a[] = { 22,44, 66,88,44,66,55 };
+  cout << "index(44,a,7) = " << index(44,a,7) << endl;
+  cout << "index(50,a,7) = " << index(50,a,7) << endl;
+}
+int index(int x,int a[],int n)
+{ for (int i=0; i<n; i++)
+    if (a[i] == x) return i;
+  return n; // x not found
+}
+/*
+OUPUT: 
+index(44,a,7) = 1
+index(50,a,7) = 7
+*/

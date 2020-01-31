@@ -1,0 +1,28 @@
+/* 
+This program prints the value of the address stored in an array name.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+
+int main()
+{ int a[] = { 22,44, 66,88 };
+  cout << "a = " << a;        // the address of a[0]
+}
+
+/*
+OUPUT: 
+a = 0x0064fdec
+
+The array name a has two interpretations. It is used with an index to name each element of the
+array, so it identifies the complete composite object. But as a variable, its value is the memory
+address of the first byte of the first element a[0] in the array.
+*/

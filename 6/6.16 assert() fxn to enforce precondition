@@ -1,0 +1,59 @@
+/* 
+This program tests an improved version of the search() function from Example 6.14. This version
+uses the isNondecreasing() function from Example 6.15 to determine whether the array is sorted. It
+passes the resulting boolean return value to the assert() function so that the search will not be carried
+out if the array is not sorted:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+#include <cassert> // defines the assert() function
+#include <iostream> // defines the cout object
+using namespace std;
+int index(int x,int a[],int n);
+int main()
+{ int a[] = { 22,33, 44,55,66,77,88,60 };
+  cout << "index(44,a,7) = " << index(44,a,7) << endl;
+  cout << "index(44,a,7) = " << index(44,a,8) << endl;
+  cout << "index(60,a,7) = " << index(60,a,8) << endl;
+}
+bool isNondecreasing(int a[],int n);
+int index(int x,int a[],int n)
+{ // PRECONDITION: a[0] <= a[1] <= ... <= a[n-1];
+  // binary search:
+  assert(isNondecreasing(a,n));
+  int lo=0,hi=n-1,i;
+  while (lo <= hi)
+  { i = (lo + hi)/2;
+    if (a[i] == x) return i;
+    if (a[i] < x) lo = i+1; // continue search in a[i+1..hi]
+    else hi = i-1; // continue search in a[lo..i-1]
+  }
+  return n; // x was not found in a[0..n-1]
+}
+
+/*
+OUPUT: 
+index(44,a,7) = 2
+
+Here, the array a[] is not completely
+sorted. But its first 7 elements are in order.
+So on the first call index(44,a,7), the
+index() function makes the call
+isNondecreasing(a,7) which
+returns the boolean value true to the
+assert() function, and the output is
+the same as in 6.14. But on the second call index(44,a,8), the subsequent call
+isNondecreasing(a,8) returns the boolean value false to the assert() function which then
+aborts the program, causing Windows to display the alert panel shown here.
+
+"Assertion (isNondecreasing(a,n)) failed in "Testing.cpp" on line 29. "
+*/

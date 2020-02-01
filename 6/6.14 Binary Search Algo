@@ -1,0 +1,89 @@
+/* 
+This program tests a function that implements the Binary Search algorithm. It uses the same test driver
+that was used in Example 6.12 on page 133 to test the Linear Search algorithm:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int index(int,int[],int);
+int main()
+{ int a[] = { 22,33, 44,55,66,77,88 };
+  cout << "index(44,a,7) = " << index(44,a,7) << endl;
+  cout << "index(60,a,7) = " << index(60,a,7) << endl;
+}
+int index(int x,int a[],int n)
+{ // PRECONDITION: a[0] <= a[1] <= ... <= a[n-1];
+  // binary search:
+  int lo=0,hi=n-1,i;
+  while (lo <= hi)
+  { i = (lo + hi)/2; // the average of lo and hi
+    if (a[i] == x) return i;
+    if (a[i] < x) lo = i+1; // continue search in a[i+1..hi]
+    else hi = i-1; // continue search in a[lo..i-1]
+  }
+  return n; // x was not found in a[0..n-1]
+}
+
+/*
+OUPUT: 
+index(44,a,7) = 2
+index(60,a,7) = 7
+
+Note that the array is already sorted before the Binary Search is applied. That requirement is expressed
+in the PRECONDITION specified as a comment in the function’s code.
+
+On each iteration of the while loop, the middle element a[i] of the subarray a[lo..hi] (i.e., all
+the elements from a[lo] to a[hi]) is examined. If it is not the target x, then the search continues
+either on the upper half a[i+1..hi] or on the lower half a[lo..i-1]. If (a[i] < x), then x
+could not be in the lower half (since the array is sorted into increasing order), so the lower half can be
+ignored and the search continued on only the upper half. Similarly, if the condition (a[i] < x) is false,
+then the search is continued on only the lower half. So on each iteration of the loop, the scope of the
+search is reduced by about 50%. The loop stops either when x is found at a[i] and the function returns,
+or when lo > hi. In that latter case, the subarray a[lo..hi] is empty, meaning that x was not found,
+so the function returns n.
+
+Here is a trace of the call index(44,a,7). When
+the loop begins, x = 44, n = 7, lo = 0, and hi = 6; the
+middle element of the array a[0..6] is a[3] = 55
+which is greater than x, so hi gets reset to i-1 = 2. On
+the second iteration, lo = 0 and hi = 2; the middle
+element of the subarray a[0..2] is a[1] = 33 which
+is less than x, so lo gets reset to i+1 = 2. On the third iteration, lo = 2 and hi = 2; the middle element of
+the subarray a[2..2] is a[2] = 44 which is equal to x, so the function returns 2, indicating that the
+target x is was found at a[2].
+
+Here is a trace of the call index(60,a,7). When
+the loop begins, x = 44, n = 7, lo = 0, and hi = 6; the
+middle element of the array a[0..6] is a[3] = 55
+which is less than x, so lo gets reset to i+1 = 4.On the
+second iteration, lo = 4 and hi = 6; the middle element
+of the subarray a[4..6] is a[5] = 77 which is greater than x, so hi gets reset to i-1 = 4. On the third iteration, lo = 4 and hi = 4; the middle element
+of the subarray a[4..4] is a[4] = 66 which is greater than x, so hi gets reset to i-1 = 3. That
+terminates the loop, so the function returns 7, indicating that the target x was not found.
+
+
+The Binary Search algorithm is significantly different from the Linear Search algorithm. The
+most important distinction is that the Binary Search works only on sorted arrays. The benefit of
+that requirement is that the Binary Search is much faster than the Linear Search. For example, on
+an array of 100 elements, the Linear Search could take up to 100 iterations, but the Binary
+Search will not need more than 8 iterations, no matter what the target is. That is because the
+Binary Search runs in logarithmic time; i.e., the number of iterations cannot exceed lgn + 1,
+where n is the size of the array and lgn is the binary (base 2) logarithm of n. When n = 100, lgn
++ 1 = 7.64.  Note that here in 6.14, n = 7 elements, so lgn + 1 = 3.81; this means that no more
+than 3 iterations will ever be needed.
+
+A third distinction between the two algorithms is that the Linear Search returns the smallest
+index i for which a[i] == x. But the Binary Search is not specific: if there are multiple copies
+of x, you cannot be sure which one is located by the returned index.
+
+Since the Binary Search requires that the array be sorted, it is useful to have a separate
+function that tests that condition.
+*/

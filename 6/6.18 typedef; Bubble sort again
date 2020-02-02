@@ -1,0 +1,62 @@
+/* 
+C++ also provides a way to rename existing types. The keyword typedef declares a new
+name (i.e., a synonym or alias) for a specified type. The syntax is
+  typedef type alias;
+where type is the given type and alias is the new name. For example, if you are used to
+programming in Pascal, you might want to use these type aliases:
+  typedef long Integer;
+  typedef double Real;
+Then you could declare variables like this:
+  Integer n = 22;
+  const Real PI = 3.141592653589793;
+  Integer frequency[64];
+Note the syntax for the typedef of an array type:
+  typedef element-type alias[];
+It shows that the number of elements in an array is not part of its type.
+
+A typedef statement does NOT define a new type; it only provides a SYNONYM for an existing
+type. For example, the sum() function defined in 6.09 could be called by
+  cout << sum(frequency,4);
+even though the frequency[] array is declared (above) to have elements of type Integer.
+There is no conflict in the parameter because Integer and int are merely different names for
+the same type.
+
+The following program shows another use for typedefs.
+
+Note the typedef:
+  typedef float Sequence[];
+The brackets [] appear after the alias type name Sequence. This alias is then used without brackets to
+declare array variables and formal parameters.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+typedef float Sequence[];
+void sort(Sequence,int);
+void print(Sequence,int);
+int main()
+{ Sequence a = {55.5, 22.5,99.9,66.6,44.4,88.8,33.3,77.7};
+  print(a,8);
+  sort(a,8);
+  print(a,8);
+}
+void sort(Sequence a, int n)
+{ for (int i=n-1; i>0; i--)
+  for (int j=0; j<i; j++)
+    if (a[j] > a[j+1]) swap(a[j],a[j+1]);
+}
+
+/*
+OUPUT: 
+55.5, 22.5, 99.9, 66.6, 44.4, 88.8, 33.3, 77.7
+22.5, 33.3, 44.4, 55.5, 66.6, 77.7, 88.8, 99.9
+
+*/

@@ -1,0 +1,61 @@
+/* 
+This program defines an array high[] of seven floats, representing the high temperatures for
+the seven days of a week.
+
+The array size is SAT+1 because SAT has the integer value 6 and the array needs 7 elements.
+
+The int variable day, declared as an index in the for loop, takes the values SUN, MON, TUE, WED,
+THU, FRI, or SAT. They are actually stored as the integers 0, 1, 2, 3, 4, 5, and 6.
+Note that it is not possible to print the names of the symbolic constants.
+
+The advantage of using enumeration constants this way is that they render this code
+“self-documenting.” For example, the for loop control
+  
+  for (int day = SUN; day <= SAT; day++)
+
+speaks for itself.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ enum Day { SUN, MON, TUE, WED, THU, FRI, SAT };                   // 0, 1, 2, 3, 4, 5, 6
+  float high[SAT+1] = {88.3, 95.0, 91.2, 89.9, 91.4, 92.5, 86.7};   // Have [SAT + 1] = [6 + 1] = [7] vars.
+  for (int day = SUN; day <= SAT; day++)
+    cout << "The high temperature for day " << day
+         << " was " << high[day] << endl;
+}
+
+/*
+OUPUT: 
+The high temperature for day 0 was 88.3
+The high temperature for day 1 was 95.0
+The high temperature for day 2 was 91.2
+The high temperature for day 3 was 89.9
+The high temperature for day 4 was 91.4
+The high temperature for day 5 was 92.5
+The high temperature for day 6 was 86.7
+
+
+Enumeration types are one way for programmers to define their own types. For example,
+  
+  enum Color { RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET };   // Note, this corresponds to 0, 1, 2, 3, 4, 5.
+
+defines the type Color which can then be used to declare variables like this:
+
+Color shirt = BLUE;
+Color car[] = { GREEN, RED, BLUE, RED };
+float wavelength[VIOLET+1] = {420, 480, 530, 570, 600, 620};   //To make 6 var's, need VIOLET + 1 (i.e., 5 + 1 = 6).  
+
+Here, shirt is a variable whose value can be any one of the 6 values of the type Color and is initialized to have the value BLUE, 
+car is an array of 4 such Color type variables indexed from 0 to 3, and 
+wavelength is an array of 6 float type variables indexed from RED to VIOLET.
+*/

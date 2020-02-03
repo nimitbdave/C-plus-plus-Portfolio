@@ -1,0 +1,82 @@
+/* 
+This uses a typedef to define the alias Score for the two-dimensional array type. This makes the
+function headers more readable.
+The printQuizAverages() function prints the average of each of the 3 rows of scores, while the
+printClassAverages() function prints the average of each of the 5 columns of scores.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+const NUM_STUDENTS = 3;
+const NUM_QUIZZES = 5;
+
+typedef int Score[NUM_STUDENTS][NUM_QUIZZES];
+
+void read(Score);
+void printQuizAverages(Score);
+void printClassAverages(Score);
+
+int main()
+{ Score score;
+  cout << "Enter " << NUM_QUIZZES << " scores for each student:\n";
+  
+  read(score);                                  //Call read()
+  cout << "The quiz averages are:\n";
+  
+  printQuizAverages(score);                     //Call printQuizAverages()
+  cout << "The class averages are:\n";
+  
+  printClassAverages(score);                    //Call printClassAverages()
+}
+
+void read(Score score)
+{ for (int s=0; s<NUM_STUDENTS; s++)
+  { cout << "Student " << s << ": ";
+    for (int q=0; q<NUM_QUIZZES; q++)
+      cin >> score[s][q];
+  }
+}
+void printQuizAverages(Score score)
+{ for (int s=0; s<NUM_STUDENTS; s++)
+  { float sum = 0.0;
+    for (int q=0; q<NUM_QUIZZES; q++)
+      sum += score[s][q];
+    cout << "\tStudent " << s << ": " << sum/NUM_QUIZZES << endl;
+  }
+}
+void printClassAverages(Score score)
+{ for (int q=0; q<NUM_QUIZZES; q++)
+  { float sum = 0.0;
+    for (int s=0; s<NUM_STUDENTS; s++)
+      sum += score[s][q];
+    cout << "\tQuiz " << q << ": " << sum/NUM_STUDENTS << endl;
+  }
+}
+
+
+
+/*
+OUPUT: 
+Enter 5 quiz scores for each student:
+Student 0: 8 7 9 8 9
+Student 1: 9 9 9 9 8
+Student 2: 5 6 7 8 9
+The quiz averages are:
+                Student 0: 8.2
+                Student 1: 8.8
+                Student 2: 7
+The class averages are:
+                Quiz 0: 7.33333
+                Quiz 1: 7.33333
+                Quiz 2: 8.33333
+                Quiz 3: 8.33333
+                Quiz 4: 8.66667
+*/

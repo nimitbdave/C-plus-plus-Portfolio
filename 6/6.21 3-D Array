@@ -1,0 +1,47 @@
+/* 
+This program simply counts the number of zeros in a three-dimensional array.
+
+Notice how the array is initialized: it is a 2-element array of 4-element arrays of 3 elements each. 
+
+That makes a total of 24 elements. It could have been initialized like this:
+  int a[2][4][3]={5, 0, 2, 0, 0, 9, 4, 1, 0, 7, 7, 7, 3, 0, 0, 8, 5, 0, 0, 0, 0, 2, 0, 9};
+or like this:
+  int a[2][4][3]={{5, 0, 2, 0, 0, 9, 4, 1, 0, 7, 7, 7},{3, 0, 0, 8, 5, 0, 0, 0, 0, 2, 0, 9}};
+But these are more difficult to read and understand than the three-dimensional initializer list.
+
+Also notice the three nested for loops. In general, processing a d-dimensional array is done with d
+for loops, one for each dimension.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int numZeros(int a[][4][3],int n1,int n2,int n3);
+int main()
+{ int a[2][4][3] = { { {5, 0, 2}, {0, 0, 9}, {4, 1, 0}, {7, 7, 7} },
+                     { {3, 0, 0}, {8, 5, 0}, {0, 0, 0}, {2, 0, 9} }
+                   };
+  cout << "This array has " << numZeros(a, 2, 4,3) << " zeros:\n";
+}
+int numZeros(int a[][4][3],int n1,int n2,int n3)
+{ int count = 0;
+  for (int i = 0; i < n1; i++)
+    for (int j = 0; j < n2; j++)
+      for (int k = 0; k < n3; k++)
+        if (a[i][j][k] == 0) ++count;
+  return count;
+}
+/*
+OUPUT: 
+This array has 11 zeros:
+
+
+*/
+

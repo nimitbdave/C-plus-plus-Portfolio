@@ -1,0 +1,32 @@
+/* 
+6.12 modified so that that it prints the memory locations and their contents for each element
+of an array:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int index(int,int[],int);
+int main()
+{ int a[] = { 22,44, 66,88,44,66,55 };
+  cout << "index(44,a,7) = " << index(44,a,7) << endl;
+  cout << "index(50,a,7) = " << index(50,a,7) << endl;
+}
+int index(int x,int a[],int n)
+{ for (int i=n-1; i>=0; i--)
+    if (a[i] == x) return i;
+  return n;
+}
+
+/*
+OUPUT: 
+index(44,a,7) = 4
+index(50,a,7) = 7
+*/

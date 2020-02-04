@@ -1,0 +1,46 @@
+/* 
+Program fills the array in reverse and then prints them in the order that they are stored:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 6.01 modified so that inputs are stored in reverse:
+  const int SIZE=5;
+  double a[SIZE];
+  
+  cout << "Enter " << SIZE << " numbers:\n";
+  for (int i=SIZE-1; i>=0; i--)
+  { cout << "\ta[" << i << "]: ";
+    cin >> a[i];
+  }
+  
+  cout << "In reverse order,they are:\n";
+  for (int i=0; i<SIZE; i++)
+    cout << "\ta[" << i << "] = " << a[i] << endl;
+  }
+}
+
+/*
+OUPUT: 
+Enter 5 numbers:
+    a[4]: 55.55
+    a[3]: 66.66
+    a[2]: 77.77
+    a[1]: 88.88
+    a[0]: 99.99
+In reverse order, they are:
+    a[0] = 99.99
+    a[1] = 88.88
+    a[2] = 77.77
+    a[3] = 66.66
+    a[4] = 55.55
+*/

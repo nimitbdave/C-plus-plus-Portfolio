@@ -1,0 +1,42 @@
+/* 
+6.01 modified with input prompts and output labels:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ const int SIZE=5;
+  double a[SIZE];
+  cout << "Enter " << SIZE << " numbers:\n";
+  for (int i=0; i<SIZE; i++)
+  { cout << "\ta[" << i << "]: ";
+    cin >> a[i];
+  }
+  cout << "In reverse order,they are:\n";
+  for (int i=SIZE-1; i>=0; i--)
+    cout << "\ta[" << i << "] = " << a[i] << endl;
+}
+
+/*
+OUPUT: 
+Enter 5 numbers
+    a[0]: 11.11
+    a[1]: 33.33
+    a[2]: 55.55
+    a[3]: 77.77
+    a[4]: 99.99
+In reverse order, they are:
+    a[4] = 99.99
+    a[3] = 77.77
+    a[2] = 55.55
+    a[1] = 33.33
+    a[0] = 11.11
+*/

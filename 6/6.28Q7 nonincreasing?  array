@@ -1,0 +1,44 @@
+/* 
+6.15 modified so that that it determines whether the array is nonincreasing:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+bool isNondecreasing(int a[],int n);
+int main()
+{ int a[] = { 22,44, 66,88,44,66,55 };
+  cout << "isNondecreasing(a,4) = " << isNondecreasing(a,4) << endl;
+  cout << "isNondecreasing(a,7) = " << isNondecreasing(a,7) << endl;
+}
+bool isNondecreasing(int a[],int n)
+{ // returns true iff a[0] <= a[1] <= ... <= a[n-1]:
+  for (int i=1; i<n; i++)
+    if (a[i]<a[i-1]) return false;
+  return true;
+}
+bool isNonincreasing(int a[],int n)
+{ for (int i=1; i<n; i++)
+if (a[i]>a[i-1]) return false;
+return true;
+}
+
+/*
+OUPUT: 
+isNondecreasing(a,4) = 1
+isNondecreasing(a,7) = 0
+
+If the function finds any adjacent pair (a[i-1],a[i]) of elements that decrease (i.e.,
+a[i]<a[i-1]), then it returns false. If that doesn’t happen, then it returns true, meaning that the
+array is nondecreasing.
+  Note that the boolean values true and false are printed as the integers 1 and 0; that is how they are
+stored in memory.
+
+*/

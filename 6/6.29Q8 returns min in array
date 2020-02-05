@@ -1,0 +1,30 @@
+/* 
+tests the following function that returns the minimum value among the first n elements
+of the given array:
+  float min(float a[],i nt n);
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+float min(float a[], int n)
+{ assert(n >= 0);
+  float min=a[0];
+  for (int i=1; i<n; i++)
+    if (a[i] < min) min = a[i];
+  return min;
+}
+
+/*
+OUPUT: 
+returns the minimum value among the first n elements
+of the given array
+*/

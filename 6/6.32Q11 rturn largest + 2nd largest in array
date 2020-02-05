@@ -1,0 +1,44 @@
+/* 
+tests the following function that returns through its reference parameters both the
+largest and the second largest values (possibly equal) stored in an array:
+  void largest(float& max1,float& max2,float a[],int n);
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void largest(float& max1, float& max2, float a[], int n)
+{ assert(n >= 1);
+  
+  if (n == 1) 
+    return a[0];
+  
+  int i1=0,i2;
+  
+  for (int i=1; i<n; i++)
+    if (a[i] > a[i1]) 
+      i1 = i;
+  
+  max1 = a[i1];
+  
+  i2 = ( i1 == 0 ? 1 : 0 );            //
+  
+  for (int i=i2+1; i<n; i++)
+    if (i != i1 && a[i] > a[i2]) 
+      i2 = i;
+  
+  max2 = a[i2];
+}
+
+/*
+OUPUT: 
+
+*/

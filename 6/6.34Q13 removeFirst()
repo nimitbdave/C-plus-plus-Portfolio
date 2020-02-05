@@ -1,0 +1,40 @@
+/* 
+tests the following function that attempts to remove an item from an array:
+
+  bool removeFirst(float a[],int& n,float x);
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+bool removeFirst(float a[], int& n, float x)
+{ for (int i=0; i<n; i++)
+    
+    if (a[i] == x)
+    { for (int j=i+1; j<n; j++)
+        a[j-1] = a[j];
+      
+      --n;
+      
+      return true;
+    }
+  
+  return false;
+}
+
+/*
+OUPUT: 
+The function searches the first n elements of the array a for the item x. If x is found, its first
+occurrence is removed, all the elements above that position are shifted down, n is decre-
+mented, and true is returned to indicate a successful removal. If x is not found, the array is
+left unchanged and false is returned. (See Q12.)
+
+*/

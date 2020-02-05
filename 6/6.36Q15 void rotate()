@@ -1,0 +1,53 @@
+/* 
+tests the following function:
+
+  void rotate(int a[],i nt n,int k);
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void rotate(int a[], int n, int k)
+{ const int MAXOFFSET=100;
+
+  assert(k < MAXOFFSET);
+
+  int temp[MAXOFFSET];
+  
+  if (k > 0)
+  { for (int j=0; j<k; j++)       // copy k elements into temp[]
+      temp[j] = a[n-k+j];
+    for (int i=n-1; i>=k; i--)    // shift n-k elements
+      a[i] = a[i-k];
+    for (int i=0; i<k; i++)       // copy k elements back to a[]
+      a[i] = temp[i];
+  }
+  if (k < 0)
+  { for (int j=0; j<-k; j++)      // copy -k elements into temp[]
+      temp[j] = a[j];
+    for (int i=0; i<n+k; i++)     // shift n+k elements
+      a[i] = a[i-k];
+    for (int i=n+k; i<n; i++)     // copy -k elements back to a[]
+      a[i] = temp[i-n-k];
+  }
+}
+
+/*
+OUPUT: 
+The function “rotates” the first n elements of the array a, k positions to the right (or –k
+positions to the left if k is negative). The last k elements are “wrapped” around to the
+beginning of the array. 
+
+For example, the call rotate(a,8,3) would transform the array
+{22,33,44,55,66,77,88,99} into {77,88,99,22,33,44,55,66}. The call rotate(a,8,-5)
+would have the same effect.
+
+*/

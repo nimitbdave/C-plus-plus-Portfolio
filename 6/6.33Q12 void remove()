@@ -1,0 +1,28 @@
+/* 
+test the following function that removes an item from an array:
+  void remove(float a[],int& n, int i);
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void remove(float a[], int& n, int i)
+{ for (int j=i+1; j<n; j++)
+    a[j-1] = a[j];
+  --n;
+}
+
+/*
+OUPUT: 
+The function removes a[i] by shifting all the elements above that position are down and
+decrementing n.
+
+*/

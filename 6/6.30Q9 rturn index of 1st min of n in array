@@ -1,0 +1,30 @@
+/* 
+tests the following function that returns the index of the first minimum value among
+the first n elements of the given array:
+  int minIndex(float a[],int n);
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int minIndex(float a[], int n)
+{ assert(n >= 0);
+  int j=0;
+  for (int i=1; i<n; i++)
+    if (a[i] < a[j]) 
+      j = i;
+  return j;
+}
+
+/*
+OUPUT: 
+
+*/

@@ -1,0 +1,45 @@
+/* 
+Implements the Selection Sort algorithm for sorting an array of n elements. This algorithm has
+n–1 iterations, each selecting the next largest element a[j] and swapping it with the element
+that is in the position where a[j] should be. So on the first iteration it selects the largest
+of all the elements and swaps it with a[n-1], and on the second iteration it selects the
+largest from the remaining unsorted elements a[0..n-2] and swaps it with a[n-2], etc.
+On its ith iteration it selects the largest from the remaining unsorted elements a[0..n-i]
+and swaps it with a[n-i]. (Uses the same loops as in 6.13.)
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+void print(float[],int);
+void sort(float[],int);
+int main()
+{ float a[] = {55.5, 22.5,99.9,66.6,44.4,88.8,33.3,77.7};
+  print(a,8);
+  sort(a,8);
+  print(a,8);
+}
+void sort(float a[], int n)
+{ // selection sort:
+  for (int i=1; i<n; i++)
+  { // select a[k] = max{a[0],a[1],...,a[n-i]}:
+    int k=0;
+    for (int j=1; j<=n-i; j++)
+      if (a[j]>a[k]) k = j;
+    swap(a[k],a[n-i]);
+    // INVARIANT: a[n-1-i..n-1] is sorted
+  }
+}
+
+/*
+OUPUT: 
+
+*/

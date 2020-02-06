@@ -1,0 +1,34 @@
+/* 
+tests the following function:
+
+  void append(int a[],i nt m,int b[],int n);
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+void append(int a[], int m, int b[], int n)
+{ for (int j=0; j<n; j++) // copy n elements into a[]
+  a[m+j] = b[j];
+}
+/*
+OUPUT: 
+The function appends the first n elements of the array b onto the end of the first m elements
+of the array a. It assumes that a has room for at least m + n elements. For example,
+if a is {22,33,44,55,66,77,88,99} and b is {20,30,40,50,60,70,80,90} then the call
+append(a,5,b,3) would transform a into {22,33,44,55,66,20,30,40}. Note that b is
+left unchanged and only n elements of a are changed.
+
+*/

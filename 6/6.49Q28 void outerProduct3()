@@ -1,0 +1,35 @@
+/* 
+float outerProduct3(float p[][3],float a[],float b[]);
+
+The function returns the outer product of the first 3 elements of a with the first 3 elements of
+b. For example, if a is the array {2.2,3.3,4.4} and b is the array {2.0,–1.0, 0.0}, then the call
+outerProduct(p,a,b) would transform the two-dimensional array p into
+Its element p[i][j] is the product of a[i] with b[j].
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+void outerProduct3(float p[][3], float a[], float b[])
+{ for (int i=0; i<3; i++)
+    for (int j=0; j<3; j++)
+      p[i][j] = a[i]*b[j];
+}
+
+
+/*
+OUPUT: 
+
+*/

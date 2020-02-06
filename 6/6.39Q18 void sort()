@@ -1,0 +1,48 @@
+/* 
+Implements the Insertion Sort algorithm for sorting an array of n elements. In this algorithm,
+the main loop index i runs from 1 to n–1. On the ith iteration, the element a[i] is
+“inserted” into its correct position among the subarray a[0..i]. This is done by shifting
+one position up all the elements in the subarray that are greater than a[i]. Then a[i] is
+copied into the gap between the elements that are less than or equal to a[i] and those that
+are greater. (Uses the insert() algorithm from Q17.)
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+void sort(float a[], int n)
+{ // insertion sort:
+  for (int i=1; i<n; i++)
+  { // insert a[i] among a[0..i-1]:
+    float x=a[i];
+    int j=i;
+    while (j>0 && a[j-1]>x)
+      a[j--] = a[j-1];
+    a[j] = x;
+    // INVARIANT: a[0..i] is sorted
+  }
+}
+void insert(float a[], int& n, float x)
+{ int j=n;
+  while (j>0 && a[j-1]>x)
+    a[j--] = a[j-1];
+  a[j] = x;
+  ++n;
+}
+
+/*
+OUPUT: 
+
+*/

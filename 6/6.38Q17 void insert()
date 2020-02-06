@@ -1,0 +1,37 @@
+/* 
+tests the function
+
+  void insert(float a[],int& n, float x)
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+void insert(float a[], int& n, float x)
+{ int j=n;
+  while (j>0 && a[j-1]>x)
+    a[j--] = a[j-1];
+  a[j] = x;
+  ++n;
+}
+
+/*
+OUPUT: 
+This function inserts the item x into the sorted array a of n elements and increments n.
+The new item is inserted at the location that maintains the sorted order of the array. This
+requires shifting elements forward to make room for the new x. (Note that this requires the
+array to have at least n+1 elements allocated.)
+
+*/

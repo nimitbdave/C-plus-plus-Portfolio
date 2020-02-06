@@ -1,0 +1,48 @@
+/* 
+In the theory of games and economic behavior, founded by John von Neumann, certain
+two-person games can be represented by a single two-dimensional array, called the payoff
+matrix. Players can obtain optimal strategies when the payoff matrix has a saddle point. A
+saddle point is an entry in the matrix that is both the minimax and the maximin. 
+The minimax of a matrix is the minimum of the column maxima, 
+and the maximin is the maximum of the row minima. 
+The optimal strategies are possible when these two values are equal. 
+
+This is a program that prints the minimax and the maximin of a given matrix.
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+double max_of_col(Matrix m,int n,int j)
+{ double max=m[0][j];
+  for (int i=1; i<n; i++)
+    if (m[i][j]>max) max = m[i][j];
+  return max;
+}
+double minimax(Matrix m, int n)
+{ assert(n>0 && n < SIZE);
+  double minimax=max_of_col(m,n,0);
+  for (int j=1; j<n; j++)
+  { double mm = max_of_col(m,n,j);
+    if (mm<minimax) minimax = mm;
+  }
+  return minimax;
+}
+
+
+/*
+OUPUT: 
+
+*/

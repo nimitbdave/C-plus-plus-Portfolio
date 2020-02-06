@@ -1,14 +1,11 @@
 /* 
-float innerProduct(float a[],int n,float b[]);
+void multiply(float a[],int n,float b[]);
 
-The function returns the inner product (also called the “dot product” or “scalar product”) of
-the first n elements of a with the first n elements of b. This is defined as the sum of the products
-of corresponding terms. 
+The function multiplies the first n elements of a by the corresponding first n elements of b.
+For example, if a is the array {2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9} and b is the array
+{4.0,–3.0,2.0,–1.0,0.0, 0.0}, then the call multiply(a,5,b) would transform a into the
+array {8.8,–9.9,8.8,–5.5, 0.0,7.7,8.8,9.9}.
 
-For example, if a is the array {2.2, 3.3,4.4, 5.5,6.6,7.7,8.8,9.9}
-and b is the array {4.0,–3.0,2.0,–1.0,0.0,0.0}, 
-then the call innerProduct(a,5,b) would return 
-(2.2)(4.0) + (3.3)(–3.0) + (2.2)(4.0) + (5.5)(–1.0) + (6.6)(0.0) = 2.2.
 
 */
 

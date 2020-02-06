@@ -1,0 +1,63 @@
+/* 
+double stdev(double x[],int n);
+
+The function returns the standard deviation of a data set of n numbers x0, …, xn–1 defined by
+the formula where is the mean of the data. 
+
+This formula says: 
+square each deviation (x[i] - mean);
+sum those squares; 
+divide that square root by n-1; 
+take the square root of that sum.
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+const int SIZE = 100;
+void read(double[],int&);
+double mean(double[],int);
+int main()
+{ double x[SIZE];
+  int n=0;
+  read(x,n);
+  double m = mean(x,n);
+  cout << "mean = " << m << endl;
+  for (int i = 0; i < n; i++)
+    cout << "x[" << i << "] = " << x[i]
+         << ",dev[i] = " << x[i] - m << endl;
+}
+void read(double x[],int& n)
+{ cout << "Enter data. Terminate with 0:\n";
+  while (n<SIZE)
+  { cout << "x[" << n << "]: ";
+    cin >> x[n];
+    if (x[n] == 0) break;
+    else ++n;
+  }
+}
+double mean(double x[],int n)
+{ double sum=0;
+  for (int i=0; i<n; i++)
+    sum += x[i];
+  return sum/n;
+}
+
+/*
+OUPUT: 
+  Enter data. Terminate with 0:
+  x[0]: 1.23
+  x[1]: 7.65
+  x[2]: 0
+  mean = 4.44
+  x[0] = 1.23,dev[i] = -3.21
+  x[1] = 7.65,dev[i] = 3.21
+*/

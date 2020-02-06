@@ -27,6 +27,26 @@ int main()
     cout << "x[" << i << "] = " << x[i]
          << ", z[" << i << "] = " << (x[i] - m)/s << endl;
 }
+double stdev(double a[], int n)
+{ assert(n > 1);
+  double sum=0;
+  for (int i=0; i<n; i++)
+    sum += a[i];
+  double mean = sum/n;
+  sum=0;
+  double deviation;
+  for (int i=0; i<n; i++)
+  { deviation = a[i] - mean;
+    sum += deviation*deviation;
+  }
+  return sqrt(sum/(n-1));
+}
+double mean(double x[],int n)
+{ double sum=0;
+  for (int i=0; i<n; i++)
+    sum += x[i];
+  return sum/n;
+}
 
 /*
 OUPUT: 

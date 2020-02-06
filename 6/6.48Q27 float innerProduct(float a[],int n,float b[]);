@@ -1,0 +1,39 @@
+/* 
+float innerProduct(float a[],int n,float b[]);
+
+The function returns the inner product (also called the “dot product” or “scalar product”) of
+the first n elements of a with the first n elements of b. This is defined as the sum of the products
+of corresponding terms. 
+
+For example, if a is the array {2.2, 3.3,4.4, 5.5,6.6,7.7,8.8,9.9}
+and b is the array {4.0,–3.0,2.0,–1.0,0.0,0.0}, 
+then the call innerProduct(a,5,b) would return 
+(2.2)(4.0) + (3.3)(–3.0) + (2.2)(4.0) + (5.5)(–1.0) + (6.6)(0.0) = 2.2.
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+float innerProduct(float a[], int n, float b[])
+{ float p=0;
+  for (int i=0; i<n; i++)
+    p += a[i]*b[i];
+  return p;
+}
+
+
+/*
+OUPUT: 
+
+*/

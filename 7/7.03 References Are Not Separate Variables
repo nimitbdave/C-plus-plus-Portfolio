@@ -1,0 +1,39 @@
+/* 
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ int n=44;
+  int& rn=n;      // r is a synonym for n
+  cout << " &n = " << &n << ", &rn = " << &rn << endl;
+  int& rn2=n;     // r is another synonym for n
+  int& rn3=rn;    // r is another synonym for n
+  cout << "&rn2 = " << &rn2 << ",&rn 3 = " << &rn3 << endl;
+}
+
+/*
+OUPUT: 
+&n = 0x0064fde4,  &rn = 0x0064fde4
+&rn2 = 0x0064fde4,  &rn3 = 0x0064fde4
+
+The first line of output shows that n and rn have the same
+address: 0x0064fde4. Thus they are merely different names for
+the same object. 
+
+The second line of output shows that an object can
+have several references, and that a reference to a reference is the
+same as a reference to the object to which it refers. In this program,
+there is only one object: an int named n with address
+0x0064fde4. The names rn, rn2, and rn3 are all references to
+that same object.
+*/

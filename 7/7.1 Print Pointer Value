@@ -1,0 +1,33 @@
+/* 
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ int n=44;
+  cout << "n = " << n << endl;    // prints the value of n
+  cout << "&n = " << &n << endl;  // prints the address of n
+}
+
+/*
+OUPUT: 
+n = 44
+&n = 0x0064fdf0
+
+The output shows that the address of n is 0x0064fdf0. You can tell that the output 0x0064fdf0
+must be an address because it is given in hexadecimal form, identified by its 0x prefix. The decimal form
+for this number is 6,618,608.
+
+Displaying the address of a variable this way is not very useful. The reference operator & has
+other more important uses. We saw one use in Folio 5: designating reference parameters in a
+function declaration. That use is closely tied to another: declaring reference variables.
+*/

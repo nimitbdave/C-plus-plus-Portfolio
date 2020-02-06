@@ -1,14 +1,9 @@
 /* 
-double stdev(double x[],int n);
 
-The function returns the standard deviation of a data set of n numbers x0, …, xn–1 defined by
-the formula where is the mean of the data. 
 
-This formula says: 
-square each deviation (x[i] - mean);
-sum those squares; 
-divide that square root by n-1; 
-take the square root of that sum.
+a program that reads an unspecified number of numbers and then prints them
+together with their deviations from their mean.
+
 
 */
 

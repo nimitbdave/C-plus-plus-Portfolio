@@ -1,0 +1,38 @@
+/* 
+tests a function that implements the Perfect Shuffle of a one-dimensional array with
+an even number of elements. 
+
+For example, it would replace the array
+{11,22,33,44,55,66,77,88} with the array {11,55,22,66,33,77,44,88}.
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+void shuffle(int a[], int n
+{ // The Perfect Shuffle for an even number of elements:
+  assert(n <= SIZE);
+  int temp[SIZE];
+  for (int i=0; i<n/2; i++)
+  { temp[2*i] = a[i];
+    temp[2*i+1] = a[n/2+i];
+  }
+  for (int i=0; i<n; i++)
+    a[i] = temp[i];
+}
+/*
+OUPUT: 
+
+*/

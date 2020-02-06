@@ -1,0 +1,34 @@
+/* 
+Rewritten and tested Bubble Sort function presented in 6.13, as an indirect sort. 
+
+Instead of moving the actual elements of the array, an index array is sorted.
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+void sort(float a[], int indx[], int n)
+{ // indirect bubble sort:
+  for (int i=1; i<n; i++)
+    // bubble up max{a[0],a[1],...,a[n-i]}:
+    for (int j=0; j<n-i; j++)
+      if (a[indx[j]] > a[indx[j+1]]) swap(indx[j],indx[j+1]);
+    // INVARIANT: a[indx[n-1-i]] <= a[indx[n-i]] <= ..a[indx[n-1]]
+}
+
+/*
+OUPUT: 
+
+*/

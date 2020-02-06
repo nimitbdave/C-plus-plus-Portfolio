@@ -1,0 +1,57 @@
+/* 
+function that “rotates” 90-degrees clockwise a two-dimensional square array of
+ints. 
+
+For example, it would transform the array
+    11  22  33
+    44  55  66  
+    77  88  99  
+into the array
+    77  44  11
+    88  55  22
+    99  66  33
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+const int SIZE=3;
+typedef int Matrix[SIZE][SIZE];
+void print(Matrix);
+void rotate(Matrix);
+int main()
+{ // tests the rotate() function:
+  Matrix m = { 11, 22, 33, 44, 55, 66, 77, 88, 99 };
+  print(m);
+  rotate(m);
+  print(m);
+}
+void print(Matrix a)
+{ for (int i=0; i<SIZE; i++)
+  { for (int j=0; j<SIZE; j++)
+      cout << a[i][j] << "\t";
+    cout << endl;
+  }
+  cout << endl;
+}
+void rotate(Matrix m)
+{ Matrix temp;
+  for (int i=0; i<SIZE; i++)
+    for (int j=0; j<SIZE; j++)
+      temp[i][j] = m[SIZE-j-1][i];
+  for (int i=0; i<SIZE; i++)
+    for (int j=0; j<SIZE; j++)
+      m[i][j] = temp[i][j];
+}
+
+/*
+OUPUT: 
+
+*/

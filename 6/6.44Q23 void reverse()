@@ -1,0 +1,33 @@
+/* 
+tests the following function:
+
+  void reverse(int a[],int n);
+
+The function reverses the first n elements of the array. 
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ // 
+    
+}
+void reverse(int a[], int n)
+{ for (int i=0; i<n/2; i++)
+  swap(a[i],a[n-1-i]);
+}
+
+/*
+OUPUT: 
+For example, the call reverse(a,5)
+would transform the array {22,33,44,55,66,77,88,99} into {66,55,44,33,22,77,88,99}.
+*/

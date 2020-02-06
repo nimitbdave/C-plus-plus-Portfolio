@@ -1,0 +1,53 @@
+/* 
+In the imaginary “good old days” when a grade of “C” was considered “average,” teachers of
+large classes would often “curve” their grades according to the following distribution:
+A: 1.5 ≤ dz
+B: 0.5 ≤ dz < 1.5
+C: –0.5 ≤ dz < 0.5
+D: –1.5 ≤ dz < –0.5
+F: z < –1.5
+If the grades were normally distributed (i.e., their density curve is bell-shaped), then this
+algorithm would produce about 7% A’s, 24% B’s, 38% C’s, 24% D’s, and 7% F’s. Here the z
+values are the Z scores described in Q33. I extend the program from Q33 so
+that it prints the “curved” grade for each of the test scores read.
+
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ double x[] = { 2.5, 4.5, 6.3, 6.7, 7.2, 7.5, 7.8, 9.9 };
+  int n=8;
+  print(x,n);
+  double m = mean(x,n);
+  double s = stdev(x,n);
+  cout << "mean = " << m << ", std dev = " << s << endl;
+  for (int i=0; i<n; i++)
+  { double z = (x[i] - m)/s;
+    cout << "x[" << i << "] = " << x[i]
+         << ", z[" << i << "] = " << z;
+    if (z >= 1.5) 
+      cout << " = A" << endl;
+    else if (z >= 0.5) 
+      cout << " = B" << endl;
+    else if (z >= -0.5) 
+      cout << " = C" << endl;
+    else if (z >= -1.5) 
+      cout << " = D" << endl;
+    else 
+      cout << " = F" << endl;
+  }
+}
+
+/*
+OUPUT: 
+
+*/

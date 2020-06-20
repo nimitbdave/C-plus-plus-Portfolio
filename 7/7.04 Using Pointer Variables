@@ -1,0 +1,53 @@
+/* 
+This program defines the:
+
+  int variable n 
+
+and the 
+
+  int* variable pn:
+*/
+
+#include <cctype> // defines the functions isdigit(), islower(), etc.
+#include <cstdlib> // rand(), RAND_MAX const, exit()
+#include <ctime> // defines the time() function
+//#include <time.h> // use this if <ctime> is not recognized
+#include <cfloat>
+#include <iomanip> // defines setw()
+#include <cmath> // defines pow() and log(), fabs(), sqrt()
+#include <iostream> // defines cin and cout
+using namespace std; 
+
+int main()
+{ int n=44;
+  cout << "n = " << n << ", &n = " << &n << endl;
+  int* pn=&n; // pn holds the address of n
+  cout << " pn = " << pn << endl;
+  cout << "&pn = " << &pn << endl;
+}
+
+/*
+OUPUT: 
+n = 44, &n = 0x0064fddc
+pn = 0x0064fddc
+&pn = 0x0064fde0
+*/
+
+/*
+The variable n is initialized to 44. 
+  Its address is 0x0064fddc. 
+The variable pn is initialized to &n 
+  which is the address of n, 
+so the value of pn is 0x0064fddc, as the second line of output shows. But pn is a separate object,
+as the third line of output shows: it has the distinct address 0x0064fde0.
+
+The variable pn is called a “pointer” because its value “points”
+to the location of another value. The value of a pointer is an
+address. That address depends upon the state of the individual
+computer on which the program is running. In most cases, the
+actual value of that address (here, 0x0064fddc) is not relevant to
+the issues that concern the programmer. So diagrams like the one
+above are usually drawn more simply like this. This captures the
+essential features of n and pn: pn is a pointer to n, and n has the
+value 44. A pointer can be thought of as a “locator”: it locates another object.
+*/

@@ -1,0 +1,58 @@
+//This is a comment.
+
+/*
+multi-line
+*/
+
+//Libraries
+
+#include <iostream>
+#include <vectors>
+#include <string>
+#include <fstream>
+
+using namespace std
+
+//Functions
+
+int main() {
+
+	cout << "Hello World!" << endl;
+  
+  const double PI = 3.1415926535;
+  
+  char myGrade = 'A';
+  
+  bool isHappy = true;
+  
+  int myAge = 16;
+  
+  float favNum = 3.14159;
+  
+  double otherFavNum = 1.6180339887; // Golden Ratio = (1 + √5)/2
+  
+  cout << "Favorite Number" << favNum << endl;
+  
+  // Other types include
+  // short int : at least 16 bits
+  // long int : at least 32 bits
+  // long long int : at least 64 bits
+  // unsigned int : same size as signed version
+  // long double : not less in size than regular doubles
+  
+  // To find number of bytes of any variable:   
+  cout  << "Size of int" << sizeof(myAge) << endl;
+  cout  << "Size of char" << sizeof(myGrade) << endl;
+  cout  << "Size of bool" << sizeof(isHappy) << endl;
+  cout  << "Size of float" << sizeof(favNum) << endl;
+  cout  << "Size of double" << sizeof(otherFavNum) << endl;
+  
+  // Limitations of types.
+  int largestInt = 2147483647; 
+  cout << "Largest int " << largestInt << endl; 
+  int largestInt = 2147483648; 
+  cout << "Largest int " << largestInt << endl;   // breaks, returns -2147483648
+  
+  return 0;
+
+}

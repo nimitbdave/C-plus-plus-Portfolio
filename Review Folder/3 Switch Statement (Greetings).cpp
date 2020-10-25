@@ -17,6 +17,7 @@ using namespace std
 
 int main() {
   
+  //Greetings
   int greetingOption = 2;
   
   switch(greetingOption){

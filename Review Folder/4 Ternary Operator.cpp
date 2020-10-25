@@ -17,10 +17,9 @@ using namespace std
 
 int main() {
   
-  variable = (condition) ? true 
+  variable = (condition) ? true : false
   
-  
-  
+  int largestNum = (5>2) ? 5 : 2;   //Prints out the true value.  
   
   return 0;
 

@@ -1,4 +1,4 @@
-//This is a comment.
+//Program which outputs random numbers from 0 to 99.  
 
 /*
 multi-line
@@ -13,14 +13,16 @@ multi-line
 
 using namespace std
 
-//Functions
-
 int main() {
   
+  int randNum = (rand() % 100) //generate random numbers from 0 to 99.  
   
+  while(randNum != 100){ 
+    cout << randNum << ", "; 
+    randNum = (rand() % 100) + 1; 
+  }
   
-  
-  
+  cout << endl;  
   
   return 0;
 

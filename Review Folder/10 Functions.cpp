@@ -28,14 +28,25 @@ int addNumbers(int firstNum, int secondNum, int thirdNum){ //okay to have addNum
   
 }
 
-
+//recursive function
+int getFactorial(int number){
+  
+  int sum; 
+  if(number == 1) sum = 1;
+  else sum = getFactorial(number - 1) * number;   //instance of recursion, calling itself in itself.
+  return sum; 
+ 
+  //getFactorial(2) [Returns 2] * 3 = 2 * 3 = 6
+  //getFactorial(1) [Returns 1] * 2 = 1 * 2 = 2
+  
+}  
 
 int main() {
   
   cout << addNumbers(1) << endl;
   cout << addNumbers(1, 5, 6) << endl; 
   
-  
+  cout << "The factorial of 3 is " << getFactorial(3) << endl; 
   
   return 0;
 

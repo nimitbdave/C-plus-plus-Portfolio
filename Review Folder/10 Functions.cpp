@@ -29,10 +29,11 @@ int addNumbers(int firstNum, int secondNum, int thirdNum){ //okay to have addNum
 }
 
 
+
 int main() {
   
-  
-  
+  cout << addNumbers(1) << endl;
+  cout << addNumbers(1, 5, 6) << endl; 
   
   
   

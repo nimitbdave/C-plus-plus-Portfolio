@@ -22,6 +22,13 @@ int addNumbers(int firstNum, int secondNum = 0){ //set default value at 0, here.
   
 }
 
+int addNumbers(int firstNum, int secondNum, int thirdNum){ //okay to have addNumbers twice, just need diff attributes.
+
+  return firstNum + secondNum + thirdNum;
+  
+}
+
+
 int main() {
   
   

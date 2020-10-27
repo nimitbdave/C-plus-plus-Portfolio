@@ -94,6 +94,7 @@ Animal::Animal(int height, int weight, string name){
   this -> name = name; 
   Animal::numOfAnimal++;
   //Therefore, setAll does the same thing that the constructor does.  
+  //So, no need to keep lines 70-87, setAll constructor.  
 }
                               
 int main() {

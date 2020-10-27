@@ -119,8 +119,50 @@ void Animal::toString(){
 
 //INHERITANCE STARTS HERE.  
 //Create a new dog class.  
-class Dog : 
-                              
+//To inherit all the Animal classes, just need ": public Animal".  
+//This way, we have everything that is defined in the Animal class.  
+class Dog : public Animal{
+  
+  private: 
+    string sound = "Woof"; 
+  
+  public:     //do some different things...
+    void getSound() { cout << sound << endl; }
+    Dog(int, int, string, string);  //prototype 
+    Dog() : Animal(){};   //declare a default constructor (Dog()) which won't receive anything
+                          //and on top of that, call the default super-class constructor (Animal)
+    void toString();      //Then, we could decide to overwrite toString()
+                          //Then, printing out the dog sound.  
+};    //remember to place a semicolon at the end of a class.  VERY IMPORTANT.  
+  
+//We need to define everything that is going to change.  
+//Constructor for the dog (Dog::Dog)
+//Then get passed the (int height, int weight, string name, string bark)
+//Now, to reference the Animal class, put a colon (:), 
+//Now, we're going to say that we want the Animal constructor to handle the (height, weight, name)
+//However, I want, for this constructor, to be able to handle the sound part, (this -> sound)
+//because sound doesn't exist in the Animal class.  Here we will have it be "bark" (= bark;). 
+//Some attributes will be shared (height, weight, name)
+//and just change the one that's different (this -> sound = bark;) 
+Dog::Dog(int height, int weight, string name, string bark) :
+Animal(height, weight, name){   
+  
+  this -> sound = bark; 
+
+}
+
+//Also could come in here since toString() also changed, so let's go in here and change it.  
+//And, because the attributes (name, height, weight) were PRIVATE in Animal,
+//I will have to use the GET method to be able to access them.  
+void Dog::toString(){
+  
+  cout << this -> getName() << " is " << this -> getHeight() << 
+    " cms tall and " << this -> getWeight() << " kgs in weight and says " 
+    << this -> sound; 
+    //Now we can demonstrate this by creating a Dog object, called spot.  
+  
+}
+
 int main() {
   
   Animal fred; 
@@ -156,7 +198,36 @@ int main() {
   
   */
   
+  Dog spot(38, 16, "Spot", "Woof");   //Spot and sound will be "Woof" [notice, not "bark"]
+  //Also, can demonstrate using static methods here:  
+  //To call a static method, you can say "getNumOfAnimals()".
+  //Can also get sound of Dog Spot (getSound).  
+  //Can also call the Superclass version of a Method (spot.Animal::toString();)
+  cout << "Number of Animals " << Animal::getNumOfAnimals() << endl; 
+  
+  spot.getSound(); 
+  
+  tom.toString();   //test toString, which basically does what all the other stuff did up there.  
+  spot.toString(); 
+  
+  spot.Animal::toString();   //Superclass version of a Method, "::" is technically the scope operator.  
   
   return 0;
+  
+  /*
+  
+  Output:
+  Fred is 33 cms tall and 10 kgs in weight
+  Tom is 36 cms tall and 15 kgs in weight
+  Number of Animals 3
+  Woof
+  Tom is 36 cms tall and 15 kgs in weight
+  Spot is 38 cms tall and 16 kgs in weight and says Woof
+  Spot is 38 cms tall and 16 kgs in weight
+  Animal Spot destroyed    
+  Animal Tom destroyed
+  Animal Fred destroyed
+  
+  */
 
 }

@@ -16,6 +16,12 @@ using namespace std
 //When data is stored, it is stored in an appropriately sized box that is based off of its data type 
 //int, double, etc.  
 
+  
+//won't return anything, so void
+void makeMeYoung (int*age){
+  cout << "I used to be " << age* << endl;  //previous age. to get the value of age, *age.
+  *age = 21;  //can change that value by using *age.  
+}
 
 int main() {
   
@@ -71,6 +77,22 @@ int main() {
   //Whenever we pass a variable to a function, we are passing by value.  
   //However, whenever we pass a pointer to a fxn, you are actually passing a reference 
   //which can be changed.  
+  
+  //call makeMeYoung()
+  makeMeYoung(&myAge); 
+  cout << "I'm " << myAge << " years old now".  //I'm 21 years old now.  
+  int& ageRef = myAge; 
+  cout << "myAge : " << myAge << endl;          //myAge : 21
+  //can take this reference and increment it.  
+  ageRef++; 
+  cout << "myAge : " << myAge << endl;          //myAge : 22  
+  //changed globally 
+  
+  //New fxn, actYourAge.
+  //To pass the reference, and show the difference between 
+  //passing that reference and dealing with pointers.  
+  
+  
   
   return 0;
 

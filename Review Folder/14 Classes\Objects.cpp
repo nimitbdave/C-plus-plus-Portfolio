@@ -67,13 +67,34 @@ int Animal::numOfAnimals = 0;   //Our static number of animals, and how we refer
                                 //and then its name (numOfAnimals).  
                                 //It's tied to the class.  It has nothing to do with the object itself.  
 
-//We could then define the prototype method for setAll.  
+//We could then define setAll, since above is just the prototype method.    
 void Animal::setAll(int height, int weight, string name){    
         //Define exactly what is being passed in here.
-        //
+        //height, weight, name
+        //To refer to an object's specific height 
+        //and not just a generic type of height 
+        //you put "this" inside here.  
+        //The reason we have to do that is because
+        //whenever the Class is created there are no animal objects created,
+        //so if we want to refer to the specific animal objects's value/version of height
+        //we need to put "this" in front of it.  
+  this -> height = height; 
+  //Do same thing for weight and name.  
+  this -> weight = weight; 
+  this -> name = name; 
+  //Can also change that static variable, using ++.   
+  Animal::numOfAnimal++;    
+}    
 
-    
-    
+//Once again, going to do this with a constructor, as well.  
+//A constructor is called every single time an animal object is created.  
+Animal::Animal(int height, int weight, string name){
+  this -> height = height;   
+  this -> weight = weight; 
+  this -> name = name; 
+  Animal::numOfAnimal++;
+  //Therefore, setAll does the same thing that the constructor does.  
+}
                               
 int main() {
   

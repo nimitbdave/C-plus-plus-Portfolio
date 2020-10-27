@@ -23,6 +23,12 @@ void makeMeYoung (int*age){
   *age = 21;  //can change that value by using *age.  
 }
 
+//void to prove nothing is exchanging hands (since nothing returned).  
+void actYourAge(int& age){
+  age = 28;
+}
+    
+
 int main() {
   
   int myAge = 39;
@@ -91,6 +97,21 @@ int main() {
   //New fxn, actYourAge.
   //To pass the reference, and show the difference between 
   //passing that reference and dealing with pointers.  
+  
+  actYourAge(ageRef); 
+  
+  cout << "myAge : " << myAge << endl;          //myAge : 28    (The value did indeed change.)
+  
+  //when using pointers or references, when should you use which?  
+  //You should use pointers if you don't want to have to initialize at declaration.  
+  //e.g., int& ageRef = myAge; 
+  //here, i am defining, or initializing what i am referencing when i am using the reference option. 
+  //whenever i am dealing with pointers, i do not need to immediately initialize.  
+  //and then on top of that, with a pointer, i'm going to be able to assign another variable to it. 
+  //so a pointer is going to be able to deal with more than one.  
+  //whereas a reference is going to give this one reference (myAge) to this one variable  (ageRef)
+  //... and be stuck with it.  
+  //so if you don't need to be able to change whatever you're pointing at, use a reference.  
   
   
   

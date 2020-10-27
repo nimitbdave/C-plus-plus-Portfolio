@@ -13,11 +13,23 @@ multi-line
 
 using namespace std
 
+//We will use a virtual method because we are going to override it and treat them as animals.
 class Animal { 
   public: 
-    virtual void makeSound(   //We will use a virtual method because we are going to override it 
-                              //and treat them as animals.
+    virtual void makeSound() { cout << "The Animal says grr" << endl; }
+                              
+}; 
 
+class Dog : public Animal {
+  public:
+    
+};
+
+class Cat : public Animal {
+  public: 
+  
+};
+      
 int main() {
   
   

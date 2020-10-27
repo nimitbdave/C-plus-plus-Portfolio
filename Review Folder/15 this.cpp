@@ -42,7 +42,7 @@ class Animal{
     string getName()  { return name; }
     void setHeight(int cm)  { height = cm; } //Only want them to enter a reasonable height.  
     void setWeight(int kg)  { weight = kg; }
-    void setName(int animalName)    { height = animalName; }
+    void setName(string animalName)    { name = animalName; }
     
 //    void setAll(int, int, string); //declare a prototype
     Animal(int, int, string); //constructor, name starts with the class's name.  
@@ -68,7 +68,7 @@ int Animal::numOfAnimals = 0;   //Our static number of animals, and how we refer
                                 //It's tied to the class.  It has nothing to do with the object itself.  
 
 //We could then define setAll, since above is just the prototype method.    
-void Animal::setAll(int height, int weight, string name){    
+//void Animal::setAll(int height, int weight, string name){    
         //Define exactly what is being passed in here.
         //height, weight, name
         //To refer to an object's specific height 
@@ -78,12 +78,12 @@ void Animal::setAll(int height, int weight, string name){
         //whenever the Class is created there are no animal objects created,
         //so if we want to refer to the specific animal objects's value/version of height
         //we need to put "this" in front of it.  
-  this -> height = height; 
+//  this -> height = height; 
   //Do same thing for weight and name.  
-  this -> weight = weight; 
-  this -> name = name; 
+//  this -> weight = weight; 
+//  this -> name = name; 
   //Can also change that static variable, using ++.   
-  Animal::numOfAnimal++;    
+//  Animal::numOfAnimal++;    
 }    
 
 //Once again, going to do this with a constructor, as well.  
@@ -96,12 +96,62 @@ Animal::Animal(int height, int weight, string name){
   //Therefore, setAll does the same thing that the constructor does.  
   //So, no need to keep lines 70-87, setAll constructor.  
 }
+
+//Need to make a deconstructor.  
+Animal::~Animal(){
+  cout << "Animal " << this -> name << " destroyed << endl;  
+    //create a message, get the name using "this", plus "destroyed". 
+}
+
+//Our OVERLOADED constructor which will be called when no attributes are passed in.  
+Animal::Animal(){
+    //In this situation, we could also call line 95, that we have created another animal.
+  Animal::numOfAnimal++;  
+}
+  
+  //Then we have toString(), line 65.  Let's declare that.  
+  //void toString() will print out all the information we have on the animals. 
+void Animal::toString(){ 
+  cout << this -> name << " is " << this -> height <<
+      " cms tall and " << this -> weight << " kgs in weight" << endl; 
+  //Now we can go down to main() and start creating the Animal object.  
+}
+   
                               
 int main() {
   
+  Animal fred; 
   
+  fred.setHeight(33);   //set his height to 33
+  fred.setWeight(10); 
+  fred.setName("Fred"); 
   
+  //Now can get the values back from it by...
+  //NOTE:  We are not using "this ->" here.  
+  //That is the difference between getting the information within the Class itself
+  //and outside in main().  
+  cout << fred.getName() << " is " << fred.getHeight() << 
+    " cms tall and " << fred.getWeight() << " kgs in weight" << endl; 
   
+  //We could then use our constructor in this situation.  
+  //On line 123, we are using the default constructor which does NOT get any attributes.  
+  //Here, we will use the constructor which DOES get attributes.  
+  Animal tom(36, 15, "Tom"); 
+  
+  //Now we can print out all the differences between Tom and Fred.  
+  cout << tom.getName() << " is " << tom.getHeight() << 
+    " cms tall and " << tom.getWeight() << " kgs in weight" << endl; 
+  //Error correction:  void setName( [should be string] animalName)... and [name] = animalName.  
+  
+  /*
+  
+  Output:
+  Fred is 33 cms tall and 10 kgs in weight
+  Tom is 36 cms tall and 15 kgs in weight
+  Animal Tom destroyed    //Destructor called to destroy both objects since no longer needed.  
+  Animal Fred destroyed
+  
+  */
   
   
   return 0;

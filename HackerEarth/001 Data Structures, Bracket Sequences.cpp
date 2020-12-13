@@ -99,7 +99,7 @@ int main()
 
 //calculating points at which l=0; Input has changed to ()(())()() : at i=0,l=1 at i=1,l=0,z=1 at i=2,l=1 at i=3,l=2 at i=4,l=1 at i=5,l=0,z=2 at i=6,l=1 at i=7,l=0,z=1 at i=8,l=1 at i=9,l=0,z=4 
 
-//answer will be 4. //Hope u like it :) (Satwik Dash)
+//answer will be 4. 
 
 		cout << z;
 
